@@ -96,6 +96,17 @@
 				]
 			});
 
+      // show notes in the browser console
+      Reveal.addEventListener('slidechanged', function( event ) {
+        if (!console) return;
+        if (typeof console.clear == 'function') console.clear();
+
+        notes = event.currentSlide.querySelector(".notes");
+        if(notes) {
+          if (typeof console.info == 'function') console.info(notes.innerHTML.replace(/\n\s+/g,'\n'));
+        }
+      });
+
 		</script>
 
 	</body>

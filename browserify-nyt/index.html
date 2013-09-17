@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>browserify-nyt slides</title>
+
+		<meta name="description" content="browserify to have commonJS everywhere">
+		<meta name="author" content="Thorsten Lorenz">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../reveal/css/reveal.min.css">
+		<link rel="stylesheet" href="../reveal/css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="../reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+        <!-- header page -->
+				<section>
+          <h1>browserify</h1>
+          <h3>seamlessly integrate server and client side javascript</h3>
+					<p>
+						<small><a href="http://thlorenz.com">Thorsten Lorenz</a></small>
+					</p>
+					<p style="white-space: pre;">
+						<small>twitter <a href="http://twitter.com/thlorenz">@thlorenz</a>  |  github  <a href="http://github/thlorenz">@thlorenz</a>  |  irc  thlorenz</small>
+					</p>
+				</section>
+
+				<section>
+          <h2>Bundle Chain</h2>
+          <img src="./img/bundle-chain.jpg" alt="bundle-chain">
+				</section>
+
+        <section>
+          <section>
+            <div data-markdown>
+              <script type="text/template">
+                ## resolving dependencies
+                #### structure
+                ```
+                .
+                ├── init.js
+                ├── main.js
+                ├── node_modules
+                │   └── marked
+                │       ├── index.js
+                │       ├── lib
+                │       │   └── marked.js
+                │       └── package.json
+                └── package.json
+                ```
+
+                #### main.js 
+                ```js
+                var foo = require('./init');
+                var marked = require('marked');
+                ```
+            
+            </script>
+          </div>
+
+          <aside class="notes">
+            - resolves nested dependencies
+          </aside>
+        </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              ## [npm dedupe](https://npmjs.org/doc/cli/npm-dedupe.html)
+            
+              #### before
+              ```sh
+              a
+              +-- b <-- depends on c@1.0.x
+              |   `-- c@1.0.3
+              `-- d <-- depends on c@~1.0.9
+                  `-- c@1.0.10
+              ```
+
+              #### after
+              ```sh
+              a
+              +-- b
+              +-- d
+              `-- c@1.0.10
+              ```
+
+            </script>
+          </section>
+      </section>
+
+			</div>
+
+		</div>
+
+		<script src="../reveal/lib/js/head.min.js"></script>
+		<script src="../reveal/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+      // show notes in the browser console
+      Reveal.addEventListener('slidechanged', function( event ) {
+        if (!console) return;
+        if (typeof console.clear == 'function') console.clear();
+
+        notes = event.currentSlide.querySelector(".notes");
+        if(notes) {
+          if (typeof console.info == 'function') console.info(notes.innerHTML.replace(/\n\s+/g,'\n'));
+        }
+      });
+		</script>
+
+	</body>
+</html>

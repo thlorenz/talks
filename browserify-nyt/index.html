@@ -80,7 +80,7 @@
 
                 #### main.js 
                 ```js
-                var foo = require('./init');
+                var init = require('./init');
                 var marked = require('marked');
                 ```
             
@@ -211,6 +211,8 @@
         <div data-markdown>
           <script type="text/template">
             ## Lets do it!
+
+            [browserify-markdown-editor-demo](https://github.com/thlorenz/browserify-markdown-editor)
           </script>
         </div>
 
@@ -221,8 +223,39 @@
       <section>
         <div data-markdown>
           <script type="text/template">
-            ## Patterns
-            - TODO: expose -jquery, browserify shim
+            ## Integrating with non-commonJS libraries
+
+            #### Expose global lib like jquery
+
+            ```js
+            // expose-jquery.js
+            // expects jquery to have been imported via a <script> tag
+            module.exports = window.$;
+            ```
+
+            ```js
+            // browserify build
+            browserify()
+              .require(require.resolve('./expose-jquery'), { expose: 'jquery' })
+            ```
+
+            ```js
+            // module depending on jquery
+            var $ = require('jquery');
+            ```
+
+            #### Alternatively use [browserify-shim](https://github.com/thlorenz/browserify-shim)
+
+            ```js
+            // browserify build
+            var browserify = require('browserify')
+              , shim = require('browserify-shim');
+
+            shim(browserify(), {
+              jquery: { path: './js/vendor/jquery.js', exports: '$' }
+            })
+            ```
+
           </script>
         </div>
 
@@ -235,9 +268,12 @@
         <div data-markdown>
           <script type="text/template">
             ## Tools
-            - beefy
-            - zuul
-            - testling, testlingify
+            - [beefy](https://github.com/chrisdickinson/beefy) browserify development server
+            - [zuul](https://github.com/shtylman/zuul) test runner integrating with browserify
+            - [testling](https://github.com/substack/testling) like travis.ci, but for browser tests
+            - [testlingify](https://github.com/thlorenz/testlingify) sets up testling for you
+
+            ![badge](https://ci.testling.com/thlorenz/extend-url.png)
           </script>
         </div>
 

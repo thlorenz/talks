@@ -51,8 +51,14 @@
 				<section>
           <h2>Bundle Chain</h2>
           <img src="./img/bundle-chain.jpg" alt="bundle-chain">
+
+          <aside class="notes">
+            - npm support
+            - commonJS -- explain dependency resolution
+          </aside>
 				</section>
 
+        <!-- START of first basement -->
         <section>
           <section>
             <div data-markdown>
@@ -86,7 +92,8 @@
           </aside>
         </section>
 
-          <section data-markdown>
+        <section>
+          <div data-markdown>
             <script type="text/template">
               ## [npm dedupe](https://npmjs.org/doc/cli/npm-dedupe.html)
             
@@ -108,7 +115,134 @@
               ```
 
             </script>
-          </section>
+          </div>
+
+          <aside class="notes">
+            - additionally browserify dedupes identical content 
+          </aside>
+        </section>
+
+        <section>
+          <div data-markdown style="font-size: 24px;">
+            <script type="text/template">
+              # transforms
+
+              * [brfs](https://github.com/substack/brfs) - inline
+              `fs.readFileSync()` calls with file contents
+
+              * [coffeeify](https://github.com/substack/coffeeify) - compile
+              `.coffee` files to javascript automatically
+
+              * [icsify](https://github.com/maxtaco/icsify) - compile
+              `.iced` IcedCoffeeScript files to javascript automatically
+
+              * [caching-coffeeify](https://github.com/thlorenz/caching-coffeeify) - coffeeify
+              version that caches previously compiled files to optimize the compilation step
+
+              * [decomponentify](https://github.com/eugeneware/decomponentify) - use
+              [component](https://github.com/component/component) client packages seamlessly
+              with browserify.
+
+              * [debowerify](https://github.com/eugeneware/debowerify) - use
+              [bower](http://bower.io) client packages more easily with browserify.
+
+              * [deAMDify](https://github.com/jaredhanson/deamdify) - translate AMD modules
+              to Node-style modules automatically
+
+              * [hbsfy](https://github.com/epeli/node-hbsfy) - precompile handlebars
+              templates to javascript functions automatically
+
+              * [rfileify](https://github.com/ForbesLindesay/rfileify) - inline `rfile(path)`
+              calls with file contents
+              (also supports `ruglify` and any other `rfile` derivatives)
+
+              * [liveify](https://github.com/quarterto/liveify) - compile livescript files to
+              javascript automatically
+
+              * [es6ify](https://github.com/thlorenz/es6ify) - compile ES6 files to
+              ES5 javascript automatically
+
+              * [turn](https://github.com/juliangruber/turn) - minimal modules for a
+              hypothetical es6 with lua's return
+
+              * [rfolderify](https://github.com/quarterto/rfolderify) - turn calls to rfolder
+              into a map of requires of the files in the thing
+            
+            </script>
+          </div>
+
+          <aside class="notes">
+            - file content gets streamed 
+            - whatever you stream out the other end substitutes the original
+          </aside>
+        </section>
+
+        <section>
+          <h2> pack </h2>
+
+          <p class="fragment roll-in">stream of metadata for each file including content</p>
+          <p class="fragment roll-in">consolidate source maps</p>
+          <p class="fragment roll-in">aggregate bundle</p>
+
+          <aside class="notes">
+            - transforms already happened at this point
+            - basically bundle is a big hashtable including redirects for relative requires
+            - each file gets generated id
+          </aside>
+        </section>
+
+        <section>
+          <div data-markdown>
+            <script type="text/template">
+              ## bundle
+
+              will run code in entry file once loaded
+            </script>
+          </div>
+
+          <aside class="notes">
+          </aside>
+        </section>
+      </section>
+
+      <!-- END of first basement -->
+
+      <section>
+        <div data-markdown>
+          <script type="text/template">
+            ## Lets do it!
+          </script>
+        </div>
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <div data-markdown>
+          <script type="text/template">
+            ## Patterns
+            - TODO: expose -jquery, browserify shim
+          </script>
+        </div>
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+
+      <section>
+        <div data-markdown>
+          <script type="text/template">
+            ## Tools
+            - beefy
+            - zuul
+            - testling, testlingify
+          </script>
+        </div>
+
+        <aside class="notes">
+        </aside>
       </section>
 
 			</div>

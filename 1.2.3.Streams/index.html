@@ -25,6 +25,9 @@
 			document.write( '<link rel="stylesheet" href="../reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
 
+    <style type="text/css">
+    </style>
+
 		<!--[if lt IE 9]>
 		<script src="../reveal/lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -37,7 +40,7 @@
 			<div class="slides">
 
         <!-- header page -->
-				<section>
+				<section data-background="img/streams-bg.jpg">
           <h1>1.2.3 Streams</h1>
           <h3>node.js streams for the utterly confused</h3>
 					<p>
@@ -54,13 +57,84 @@
         <section>
           <div data-markdown>
             <script type="text/template">
+              ## Readable 
+              ![readable](img/lemmings-readable.gif)
+            </script>
+          </div>
+
+          <aside class="notes">
+            - wrote this talk for my past self
+          </aside>
+        </section>
+
+        <section>
+          <div data-markdown>
+            <script type="text/template">
               ## Writable 
               ![writable](img/lemmings-writable.gif)
             </script>
           </div>
 
           <aside class="notes">
-            - wrote this talk for my past self
+          </aside>
+        </section>
+        
+        <section>
+          <div data-markdown>
+            <script type="text/template">
+              ## Transform 
+              ![transform](img/evolution-transform.jpg)
+            </script>
+          </div>
+
+          <aside class="notes">
+            - duplex stream == readable and writable
+            - lemmings level is a duplex stream, but lemmings don't get transformed
+          </aside>
+        </section>
+
+        <!-- Push/Pull -->
+        <section>
+          <section>
+            <h2> Push Stream </h2>
+
+            <img src="img/keg-push-stream.gif" alt="keg-push-stream">
+
+            <aside class="notes">
+              - piped before data is pushed
+            </aside>
+          </section>
+
+          <section>
+            <h2> Push Stream </h2>
+
+            <img src="img/cat-push-stream.jpg" alt="cat-push-stream">
+
+            <aside class="notes">
+              - data maybe pushed before cat is in position and therefore lost
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <h2> Pull Stream </h2>
+
+          <img src="img/cat-pull-stream.jpg" alt="cat-pull-stream">
+
+          <aside class="notes">
+            - control data consumption via pull stream
+          </aside>
+        </section>
+
+        <section>
+          <h2>Backpressure</h2>
+
+          <img src="img/beaver-backpressure.jpg" alt="beaver-backpressure">
+
+          <aside class="notes">
+            - needed for push stream to tell it to slow down
+            - implementor had to handle this for streams 1
+            - readable stream handles it for you
           </aside>
         </section>
 

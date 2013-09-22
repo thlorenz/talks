@@ -145,6 +145,139 @@
           </aside>
         </section>
 
+        <!-- Implementing streams -->
+        <section>
+          <section>
+            <h2>Implementing Streams</h2>
+            <div>
+              <style type="text/css">
+                code { color: lightgreen }
+                .reveal ul { list-style-type: circle; white-space: pre; }
+              </style>
+              <ul>
+                <li class="fragment fade-in">Readable:         <code>_read([size])</code></li>
+                <li class="fragment fade-in">Writable:         <code>_write(chunk, encoding, cb)</code></li>
+                <li class="fragment fade-in">Transform:        <code>_transform(chunk, encoding, cb)</code>
+                                    <code>_flush(cb)</code></li>
+              </ul>
+            </div>
+
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <!-- Readable -->
+          <section>
+            <div data-markdown>
+              <script type="text/template">
+                ## [Readable](http://nodejs.org/api/stream.html#stream_new_stream_readable_options)
+
+                ```js
+                var stream = require('stream');
+                var util = require('util');
+
+                var Readable = stream.Readable;
+                util.inherits(MyReadable, Readable);
+
+                function MyReadable (opts) {
+                  if (!(this instanceof MyReadable)) return new MyReadable(opts);
+                  Readable.call(this, opts);
+                }
+
+                MyReadable.prototype._read = function () {
+                  
+                };
+                ```
+              </script>
+            </div>
+
+            <div>
+              <style type="text/css">
+                code { color: lightgreen }
+                .reveal ul { list-style-type: circle; white-space: normal; }
+              </style>
+              <ul>
+                <li class="fragment fade-in">
+                  <code>_read</code> called by <code>Readable</code> once 
+                </li>
+                <li class="fragment fade-in">
+                  call <code>self.push(chunk)</code> to cause another <code>_read</code>
+                </li>
+                <li class="fragment fade-in">
+                  if <code>self.push(chunk)</code> returns <code>false</code> stop reading
+                </li>
+                <li class="fragment fade-in">
+                  <code>self.push(null)</code> to signal end of data
+                </li>
+              </ul>
+            </div>
+
+            <aside class="notes">
+            </aside>
+          </section>
+            
+          <!-- Writable -->
+          <section>
+            <div data-markdown>
+              <script type="text/template">
+                ## Writable 
+
+                ```js
+                var stream = require('stream');
+                var util = require('util');
+
+                var Writable = stream.Writable;
+                util.inherits(MyWritable, Writable);
+
+                function MyWritable (opts) {
+                  if (!(this instanceof MyWritable)) return new MyWritable(opts);
+                  Writable.call(this, opts);
+                }
+
+                MyWritable.prototype._write = function (chunk, encoding, cb) {
+                  
+                };
+                ```
+              </script>
+            </div>
+
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <!-- Transform -->
+          <section>
+            <div data-markdown>
+              <script type="text/template">
+                ## Transform 
+
+                ```js
+                var stream = require('stream');
+                var util = require('util');
+
+                var Transform = stream.Transform;
+
+                util.inherits(MyTransform, Transform);
+
+                function MyTransform (opts) {
+                  if (!(this instanceof MyTransform)) return new MyTransform(opts);
+                  Transform.call(this, opts);
+                }
+
+                MyTransform.prototype._transform = function (chunk, encoding, cb) {
+
+                };
+                ```
+              </script>
+            </div>
+
+            <aside class="notes">
+            </aside>
+          </section>
+
+
+        </section>
+
         <!-- footer page -->
 				<section>
           <h2>Thanks!</h2>

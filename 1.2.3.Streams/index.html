@@ -73,6 +73,10 @@
 
           <aside class="notes">
             - wrote this talk for my past self
+            - general concepts
+            - apply to nodejs streams
+            - briefly mention streams1 and point out problems during the talk
+            - no focus on these "glorified event emitters" as you should use newer streams implementation whenever possible
           </aside>
         </section>
 
@@ -144,37 +148,63 @@
             - needed for push stream to tell it to slow down
             - implementor had to handle this for streams 1
             - readable stream handles it for you
+            - doctor's office (sick to healthy transform)
           </aside>
         </section>
 
         <!-- Consuming Streams -->
         <section>
-          <h2>Consuming Streams</h2>
+          <section>
+            <h2>Consuming Streams</h2>
+            <aside class="notes">
+              - readable streams can function as push or pull streams
+              - modes get switch whenever specific functions get called and/or event handlers are registered
+            </aside>
+          </section>
+          <section>
+            <h2>Push Streams</h2>
+            <h4>Streams in Flowing Mode</h4>
+            <div class="fragment roll-in">
+              <pre class="js"><code>
+    readable
+      .pipe(transform)
+      .pipe(anotherTransform)
+      .on('error', console.error.bind(console))
+      .on('end', callback)
+      .pipe(writable)
+              </code></pre>
+            </div>
 
-          <div class="fragment roll-in">
-            <pre class="js"><code>
-  readable
-    .pipe(transform)
-    .pipe(anotherTransform)
-    .on('error', console.error.bind(console))
-    .on('end', callback)
-    .pipe(writable)
-            </code></pre>
-          </div>
+            <div class="fragment roll-in">
+              <pre class="js"><code>
+    readable
+      .on('error', console.error.bind(console))
+      .on('end', callback)
+      .on('data', function (data) { /* do something for christ's sake !! */ })
+              </code></pre>
+            </div>
 
-          <div class="fragment roll-in">
-            <pre class="js"><code>
-  readable
-    .on('error', console.error.bind(console))
-    .on('end', callback)
-    .on('data', function (data) { /* do something for christ's sake !! */ })
-            </code></pre>
-          </div>
+            <aside class="notes">
+            </aside>
+          </section>
 
-          <aside class="notes">
-            - duplex stream == readable and writable
-            - lemmings level is a duplex stream, but lemmings don't get transformed
-          </aside>
+          <section>
+            <h2>Pull Streams</h2>
+            <h4>Streams in Non-Flowing Mode</h4>
+            <div class="fragment roll-in">
+              <pre class="js"><code>
+    var val = readable.read();
+    if (val === null) { 
+      readable.on('readable', function () { /* continue reading */ });
+    }
+              </code></pre>
+            </div>
+
+            <aside class="notes">
+              - duplex stream == readable and writable
+              - lemmings level is a duplex stream, but lemmings don't get transformed
+            </aside>
+          </section>
         </section>
 
         <!-- Implementing streams -->
@@ -234,12 +264,14 @@
                   <code>self.push(null)</code> to signal end of data
                 </li>
                 <li class="fragment fade-in">
-                  buffering/backpressure handled for you
+                  buffering/backpressure handled for you according to <code>highWaterMark</code>
                 </li>
               </ul>
             </div>
 
             <aside class="notes">
+              - streams1 needed to manually handle buffering and a pause/resume method
+              - i.e. when paused we wrote to the buffer when data came in and drained it when resume was called
             </aside>
           </section>
             
@@ -247,7 +279,7 @@
           <section>
             <div data-markdown>
               <script type="text/template">
-                ## Writable 
+                ## [Writable](http://nodejs.org/api/stream.html#stream_class_stream_writable_1)
 
                 ```js
                 var stream = require('stream');
@@ -267,6 +299,16 @@
                 ```
               </script>
             </div>
+            <div>
+              <ul>
+                <li class="fragment fade-in">
+                  process chunk 
+                </li>
+                <li class="fragment fade-in">
+                  <code>cb([error])</code> to signal write completed 
+                </li>
+              </ul>
+            </div>
 
             <aside class="notes">
             </aside>
@@ -276,7 +318,7 @@
           <section>
             <div data-markdown>
               <script type="text/template">
-                ## Transform 
+                ## [Transform](http://nodejs.org/api/stream.html#stream_class_stream_transform_1)
 
                 ```js
                 var stream = require('stream');
@@ -298,6 +340,22 @@
               </script>
             </div>
 
+            <div>
+              <ul>
+                <li class="fragment fade-in">
+                  call <code>self.push(chunk)</code> 0 or more times 
+                </li>
+                <li class="fragment fade-in">
+                  call <code>cb()</code> after chunk has been completely consumed
+                </li>
+                <li class="fragment fade-in">
+                  easily implement async transforms
+                </li>
+                <li class="fragment fade-in">
+                implement <code>_flush(cb)</code> to append data at the end of the stream
+                </li>
+              </ul>
+            </div>
             <aside class="notes">
             </aside>
           </section>

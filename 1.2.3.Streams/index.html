@@ -33,6 +33,8 @@
         -o-background-size: cover;
         background-size: cover;
       }
+      code { color: lightgreen }
+      .reveal ul { list-style-type: circle; }
     </style>
 
 		<!--[if lt IE 9]>
@@ -145,15 +147,41 @@
           </aside>
         </section>
 
+        <!-- Consuming Streams -->
+        <section>
+          <h2>Consuming Streams</h2>
+
+          <div class="fragment roll-in">
+            <pre class="js"><code>
+  readable
+    .pipe(transform)
+    .pipe(anotherTransform)
+    .on('error', console.error.bind(console))
+    .on('end', callback)
+    .pipe(writable)
+            </code></pre>
+          </div>
+
+          <div class="fragment roll-in">
+            <pre class="js"><code>
+  readable
+    .on('error', console.error.bind(console))
+    .on('end', callback)
+    .on('data', function (data) { /* do something for christ's sake !! */ })
+            </code></pre>
+          </div>
+
+          <aside class="notes">
+            - duplex stream == readable and writable
+            - lemmings level is a duplex stream, but lemmings don't get transformed
+          </aside>
+        </section>
+
         <!-- Implementing streams -->
         <section>
           <section>
             <h2>Implementing Streams</h2>
             <div>
-              <style type="text/css">
-                code { color: lightgreen }
-                .reveal ul { list-style-type: circle; white-space: pre; }
-              </style>
               <ul>
                 <li class="fragment fade-in">Readable:         <code>_read([size])</code></li>
                 <li class="fragment fade-in">Writable:         <code>_write(chunk, encoding, cb)</code></li>
@@ -192,10 +220,6 @@
             </div>
 
             <div>
-              <style type="text/css">
-                code { color: lightgreen }
-                .reveal ul { list-style-type: circle; white-space: normal; }
-              </style>
               <ul>
                 <li class="fragment fade-in">
                   <code>_read</code> called by <code>Readable</code> once 
@@ -208,6 +232,9 @@
                 </li>
                 <li class="fragment fade-in">
                   <code>self.push(null)</code> to signal end of data
+                </li>
+                <li class="fragment fade-in">
+                  buffering/backpressure handled for you
                 </li>
               </ul>
             </div>

@@ -230,10 +230,10 @@
                 ## [Readable](http://nodejs.org/api/stream.html#stream_new_stream_readable_options)
 
                 ```js
-                var stream = require('stream');
+                var streams = require('streams');
                 var util = require('util');
 
-                var Readable = stream.Readable;
+                var Readable = streams.Readable;
                 util.inherits(MyReadable, Readable);
 
                 function MyReadable (opts) {
@@ -242,7 +242,7 @@
                 }
 
                 MyReadable.prototype._read = function () {
-                  
+                  this.push(this.idx++);
                 };
                 ```
               </script>
@@ -281,10 +281,10 @@
                 ## [Writable](http://nodejs.org/api/stream.html#stream_class_stream_writable_1)
 
                 ```js
-                var stream = require('stream');
+                var streams = require('streams');
                 var util = require('util');
 
-                var Writable = stream.Writable;
+                var Writable = streams.Writable;
                 util.inherits(MyWritable, Writable);
 
                 function MyWritable (opts) {
@@ -293,7 +293,7 @@
                 }
 
                 MyWritable.prototype._write = function (chunk, encoding, cb) {
-                  
+                  this.sink(chunk, cb);  
                 };
                 ```
               </script>
@@ -320,11 +320,7 @@
                 ## [Transform](http://nodejs.org/api/stream.html#stream_class_stream_transform_1)
 
                 ```js
-                var stream = require('stream');
-                var util = require('util');
-
-                var Transform = stream.Transform;
-
+                var Transform = streams.Transform;
                 util.inherits(MyTransform, Transform);
 
                 function MyTransform (opts) {
@@ -332,8 +328,13 @@
                   Transform.call(this, opts);
                 }
 
-                MyTransform.prototype._transform = function (chunk, encoding, cb) {
-
+                MyTransform.prototype._transform = function (num, encoding, cb) {
+                    var self = this;
+                    function respond () {
+                      self.push(num * num);
+                      cb();
+                    }
+                    setTimeout(respond, this._throttle);
                 };
                 ```
               </script>

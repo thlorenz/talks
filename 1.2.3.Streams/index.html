@@ -230,10 +230,10 @@
                 ## [Readable](http://nodejs.org/api/stream.html#stream_new_stream_readable_options)
 
                 ```js
-                var streams = require('streams');
+                var stream = require('stream');
                 var util = require('util');
 
-                var Readable = streams.Readable;
+                var Readable = stream.Readable;
                 util.inherits(MyReadable, Readable);
 
                 function MyReadable (opts) {
@@ -281,10 +281,10 @@
                 ## [Writable](http://nodejs.org/api/stream.html#stream_class_stream_writable_1)
 
                 ```js
-                var streams = require('streams');
+                var stream = require('stream');
                 var util = require('util');
 
-                var Writable = streams.Writable;
+                var Writable = stream.Writable;
                 util.inherits(MyWritable, Writable);
 
                 function MyWritable (opts) {
@@ -320,7 +320,7 @@
                 ## [Transform](http://nodejs.org/api/stream.html#stream_class_stream_transform_1)
 
                 ```js
-                var Transform = streams.Transform;
+                var Transform = stream.Transform;
                 util.inherits(MyTransform, Transform);
 
                 function MyTransform (opts) {
@@ -359,9 +359,13 @@
             <aside class="notes">
             </aside>
           </section>
-
-
         </section>
+
+        <!-- Stream-Viz -->
+				<section style="top: -400px !important; left: -800px !important; width: 1700px !important; height: 900px !important; display: block;">
+          <h2><a href="https://gitub.com/thlorenz/stream-viz">Stream-Viz</a></h2>
+          <iframe src="http://localhost:3000" width="1600" height="800"></iframe>
+				</section>
 
         <!-- footer page -->
 				<section>

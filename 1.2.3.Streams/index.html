@@ -257,13 +257,7 @@
                   call <code>self.push(chunk)</code> to cause another <code>_read</code>
                 </li>
                 <li class="fragment fade-in">
-                  if <code>self.push(chunk)</code> returns <code>false</code> stop reading
-                </li>
-                <li class="fragment fade-in">
                   <code>self.push(null)</code> to signal end of data
-                </li>
-                <li class="fragment fade-in">
-                  buffering/backpressure handled for you according to <code>highWaterMark</code>
                 </li>
               </ul>
             </div>
@@ -305,6 +299,9 @@
                 </li>
                 <li class="fragment fade-in">
                   <code>cb([error])</code> to signal write completed 
+                </li>
+                <li class="fragment fade-in">
+                  buffering/backpressure handled for you according to <code>highWaterMark</code>
                 </li>
               </ul>
             </div>
@@ -370,7 +367,7 @@
 
               - streamed values
               - chunk rate
-              - writable/readable buffer lenght
+              - writable/readable buffer length
               - writable/readable stream state
             </script>
           </div>

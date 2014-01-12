@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title></title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Thorsten Lorenz">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../reveal/css/reveal.min.css">
+		<link rel="stylesheet" href="../reveal/css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="../reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+        <!-- header page -->
+				<section>
+          <h1>Source Maps</h1>
+					<p>
+						<small><a href="http://thlorenz.com">Thorsten Lorenz</a></small>
+					</p>
+					<p style="text-align: center;">
+						<small>twitter <a href="http://twitter.com/thlorenz">@thlorenz</a>  |  github  <a href="http://github/thlorenz">@thlorenz</a>  |  irc  thlorenz</small>
+					</p>
+				</section>
+
+				<section class="what-is">
+          <h2>What is a source map?</h2>
+					<p>Maps generated things to the source they were generated from</p>
+
+          <canvas id="chick-canvas" width="600" height="400"></canvas>
+
+          <!-- egg lower left -->
+          <p class="fragment rollin"></p>
+          <!-- chick upper right -->
+          <p class="fragment rollin"></p>
+          <!-- egg lower right -->
+          <p class="fragment rollin"></p>
+          <!-- chick upper left -->
+          <p class="fragment rollin"></p>
+          <!-- path lower right -->
+          <p class="fragment rollin"></p>
+				</section>
+
+
+				<section class="apple-sauce">
+          <h2>Apple sauce maps</h2>
+
+          <canvas id="apple-canvas" width="600" height="400"></canvas>
+
+          <!-- apple one -->
+          <p class="fragment rollin"></p>
+          <!-- apple two -->
+          <p class="fragment rollin"></p>
+          <!-- apple three -->
+          <p class="fragment rollin"></p>
+				</section>
+
+        <!-- section bundle -->
+        <section>
+          <section class="bundle">
+            <h2>browserify bundle</h2>
+            <img src="img/bundle.png" alt="bundle">
+          </section>
+          <section class="bundle">
+            <h2>browserify bundle</h2>
+            <img src="img/bundle-annotated.png" alt="annotated-bundle">
+          </section>
+        </section>
+
+        <section class="coffee-script">
+          <h2>Transpilers</h2>
+          <iframe id="souce-map-visualization" src="http://sokra.github.io/source-map-visualization/#simple-coffee"
+            width="1000" height="800" allowfullscreen></iframe>
+          <a href="http://sokra.github.io/source-map-visualization/">source-map-visualization</a>
+        </section>
+
+        <section class="es6-bundled">
+          <h2>ES6 bundled</h2>
+          <img src="img/es6-bundle-annotated.png" alt="annotated-es6">
+          <a href="https://github.com/thlorenz/es6ify">es6ify</a>
+        </section>
+
+        <section class="sass-bundled">
+          <h2>SASS bundled</h2>
+          <div>
+            <img src="img/scss-source.png" alt="scss source">
+            <img src="img/scss-sidebar.png" alt="scss sidebar">
+          </div>
+          <a href="https://github.com/thlorenz/sass-resolve">sass-resolve</a>
+        </section>
+
+        <section class="stack-mapper">
+          <h2>Stack Mapper</h2>
+          <div>
+            <img src="img/stack-mapper.png" alt="stack-mapper">
+          </div>
+          <a href="https://github.com/defunctzombie/zuul">zuul</a><span> | </span>
+          <a href="https://github.com/thlorenz/stack-mapper">stack-mapper</a>
+        </section>
+
+        <section>
+          <section class="formats-inlined">
+              <h2>How to provide source maps</h2>
+              <div class="fragment roll-in" data-markdown>
+                <script type="text/template">
+                ### Inlined
+                ```js
+                //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2VuZXJhdGVkLmpzIiwic291cmNlcyI6WyIvVXNlcnMvdGhsb3JlbnovZGV2L2pzL3Byb2plY3RzL2V4b3JjaXN0L25vZGVfbW9kdWxlcy9icm93c2VyaWZ5L25vZGVfbW9kdWxlcy9icm93c2VyLXBhY2svX3ByZWx1ZGUuanMiLCIvVXNlcnMvdGhsb3JlbnovZGV2L2pzL3Byb2plY3RzL2V4b3JjaXN0L2V4YW1wbGUvYmFyLmpzIiwiL1VzZXJzL3RobG9yZW56L2Rldi9qcy9wcm9qZWN0cy9leG9yY2lzdC9leGFtcGxlL2Zvby5qcyIsIi9Vc2Vycy90aGxvcmVuei9kZXYvanMvcHJvamVjdHMvZXhvcmNpc3QvZXhhbXBsZS9tYWluLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FDQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQ0xBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FDUEE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlc0NvbnRlbnQiOlsiKGZ1bmN0aW9uIGUodCxuLHIpe2Z1bmN0aW9uIHMobyx1KXtpZighbltvXSl7aWYoIXRbb10pe3ZhciBhPXR5cGVvZiByZXF1aXJlPT1cImZ1bmN0aW9uXCImJnJlcXVpcmU7aWYoIXUmJmEpcmV0dXJuIGEobywhMCk7aWYoaSlyZXR1cm4gaShvLCEwKTt0aHJvdyBuZXcgRXJyb3IoXCJDYW5ub3QgZmluZCBtb2R1bGUgJ1wiK28rXCInXCIpfXZhciBmPW5bb109e2V4cG9ydHM6e319O3Rbb11bMF0uY2FsbChmLmV4cG9ydHMsZnVuY3Rpb24oZSl7dmFyIG49dFtvXVsxXVtlXTtyZXR1cm4gcyhuP246ZSl9LGYsZi5leHBvcnRzLGUsdCxuLHIpfXJldHVybiBuW29dLmV4cG9ydHN9dmFyIGk9dHlwZW9mIHJlcXVpcmU9PVwiZnVuY3Rpb25cIiYmcmVxdWlyZTtmb3IodmFyIG89MDtvPHIubGVuZ3RoO28rKylzKHJbb10pO3JldHVybiBzfSkiLCIndXNlIHN0cmljdCc7XG5cbnZhciBnbyA9IG1vZHVsZS5leHBvcnRzID0gZnVuY3Rpb24gKCkge1xuICByZXR1cm4gJ2hleSwgSSBhbSBiYXInOyAgICBcbn07XG4iLCIndXNlIHN0cmljdCc7XG5cbnZhciBiYXIgPSByZXF1aXJlKCcuL2JhcicpO1xuXG52YXIgZ28gPSBtb2R1bGUuZXhwb3J0cyA9IGZ1bmN0aW9uICgpIHtcbiAgY29uc29sZS5sb2coYmFyKCkpOyAgXG59O1xuIiwiJ3VzZSBzdHJpY3QnO1xuXG52YXIgZm9vID0gcmVxdWlyZSgnLi9mb28nKTtcblxuZm9vKCk7XG4iXX0=
+                ```
+              </script>
+            </div>
+          </section>
+          <section class="formats-external">
+            <div data-markdown>
+              <script type="text/template">
+                ### External Map file
+
+                #### bundle.js.map
+                ```json
+                {
+                  "version": 3,
+                  "file": "generated.js",
+                  "sources": [
+                    "/Users/thlorenz/dev/js/projects/exorcist/node_modules/browserify/node_modules/browser-pack/_prelude.js",
+                    "/Users/thlorenz/dev/js/projects/exorcist/example/bar.js",
+                    "/Users/thlorenz/dev/js/projects/exorcist/example/foo.js",
+                    "/Users/thlorenz/dev/js/projects/exorcist/example/main.js"
+                  ],
+                  "names": [],
+                  "mappings": "AAAA;ACAA;AACA;AACA;AACA;AACA;AACA;;ACLA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;ACPA;AACA;AACA;AACA;AACA;AACA",
+                  "sourcesContent": [
+                    "(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\"function\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error(\"Cannot find module '\"+o+\"'\")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\"function\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})",
+                    "'use strict';\n\nvar go = module.exports = function () {\n  return 'hey, I am bar';    \n};\n",
+                    "'use strict';\n\nvar bar = require('./bar');\n\nvar go = module.exports = function () {\n  console.log(bar());  \n};\n",
+                    "'use strict';\n\nvar foo = require('./foo');\n\nfoo();\n"
+                  ],
+                  "sourceRoot": ""
+                }
+                ```
+
+                #### bundle.js
+                ```js
+                [ .. ]
+                //# sourceMappingURL=bundle.js.map
+                ```
+              </script>
+            </div>
+
+            <aside class="notes">
+            </aside>
+          </section>
+        </section>
+
+        <!-- footer page -->
+				<section>
+          <h2>Thanks!</h2>
+          <img src="http://thlorenz.com/img/avatar.jpg" alt="Headshot">
+					<p>
+						<small><a href="http://thlorenz.com">Thorsten Lorenz</a></small>
+					</p>
+					<p style="text-align: center;">
+						<small>twitter <a href="http://twitter.com/thlorenz">@thlorenz</a>  |  github  <a href="http://github/thlorenz">@thlorenz</a>  |  irc  thlorenz</small>
+					</p>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../reveal/lib/js/head.min.js"></script>
+		<script src="../reveal/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+      // show notes in the browser console
+      Reveal.addEventListener('slidechanged', function( event ) {
+        return;
+        if (!console) return;
+        if (typeof console.clear == 'function') console.clear();
+
+        notes = event.currentSlide.querySelector(".notes");
+        if(notes) {
+          if (typeof console.info == 'function') console.info(notes.innerHTML.replace(/\n\s+/g,'\n'));
+        }
+      });
+
+		</script>
+
+		<script src="./main.js"></script>
+		<link rel="stylesheet" href="./main.css">
+	</body>
+</html>

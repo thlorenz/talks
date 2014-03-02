@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title></title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Thorsten Lorenz">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../reveal/css/reveal.min.css">
+		<link rel="stylesheet" href="../reveal/css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="../reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../reveal/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+        <!-- header page -->
+				<section>
+          <h1>Productivity Up</h1>
+          <h3>or what we can learn from musicians</h3>
+					<p>
+						<small><a href="http://thlorenz.com">Thorsten Lorenz</a></small>
+					</p>
+					<p style="text-align: center;">
+						<small>twitter <a href="http://twitter.com/thlorenz">@thlorenz</a>  |  github  <a href="http://github/thlorenz">@thlorenz</a>  |  irc  thlorenz</small>
+					</p>
+				</section>
+
+        <!-- guitarist -->
+				<section>
+          <img src="img/swingalicious.png">
+					<aside class="notes">
+					  - setup guitar (strings lower, change position)
+					  - practice all day to get technique to play licks fast enough
+            - need to keep up with rest of band
+            - not the case when you code which may hide inefficiency
+            - JS is very efficient language, but
+            - find/setup tools to be most efficient
+            - practice working with the and continuously try to improve efficiency
+            - presentation is designed to help and encourage you how to push your productivity to the maximum
+					</aside>
+				</section>
+
+        <!-- Fast Feedback Intro -->
+        <section>
+
+          <section>
+            <h2>Fast Feedback</h2>
+            <h3 class="fragment roll-in">Idea</h3>
+            <p class="fragment zoom-in" style="font-size:100px">↓</p>
+            <h3 class="fragment roll-in">Result</h3>
+          </section>
+
+          <section>
+            <h2>Fast Feedback</h2>
+            <p class="fragment highlight-green">Write Code</p>
+            <p class="fragment highlight-green">Inspect</p>
+            <p class="fragment highlight-green">Test</p>
+            <p class="fragment highlight-green">Debug</p>
+          </section>
+        </section>
+
+        <!-- Pimp your Editor Intro -->
+        <section>
+          <section>
+            <h2>Pimp your Editor</h2>
+          </section>
+          <section>
+            <h2>Vim</h2>
+            <img src="img/vim.jpg">
+          </section>
+
+          <section>
+            <div>
+              <img src="img/terminal.png" style="float:left">
+              <img src="img/running-away.jpg" style="float:left">
+          </section>
+
+          <section>
+            <h2>Mac Vim</h2>
+            <img src="img/mvim.jpg">
+          </section>
+
+          <section>
+            <h2>GVim</h2>
+            <img src="img/gvim.png">
+          </section>
+          <section>
+            <h1>The End</h1>
+          </section>
+          <section>
+            <h1>Pimp Your Editor!</h1>
+          </section>
+        </section>
+
+        <!-- Pimp your Editor -->
+        <section>
+
+          <section>
+            <h2>Snippets</h2>
+
+            <aside class="notes">
+              - practice lick over and over
+              - snippet is like playing lick with snap of finger
+              - use for things you type all the time
+            </aside>
+          </section>
+          <section>
+            <h2>Point out Syntax Errors</h2>
+            <img src="img/syntax-error.png">
+            <div class="fragment zoom-in">
+              <img src="img/syntax-error-pointed-out.png">
+              <p><a href="https://github.com/scrooloose/syntastic">syntastic</a></p>
+          </div>
+          </section>
+          <section>
+            <h2>Shortcut to Run Code</h2>
+            <aside class="notes">
+              - node your code (needs to be runnable - more on that later)
+              - demo snippet (module.parent) explain both 
+              - demo syntastic
+            </aside>
+          </section>
+
+        </section>
+
+        <!-- markdown -->
+        <section>
+          <div data-markdown>
+            <script type="text/template">
+              ## Markdown slide with notes
+            </script>
+          </div>
+
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <!-- footer page -->
+				<section>
+          <h2>Thanks!</h2>
+          <img src="http://thlorenz.com/img/avatar.jpg" alt="Headshot">
+					<p>
+						<small><a href="http://thlorenz.com">Thorsten Lorenz</a></small>
+					</p>
+					<p style="text-align: center;">
+						<small>twitter <a href="http://twitter.com/thlorenz">@thlorenz</a>  |  github  <a href="http://github/thlorenz">@thlorenz</a>  |  irc  thlorenz</small>
+					</p>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../reveal/lib/js/head.min.js"></script>
+		<script src="../reveal/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '../reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+      // show notes in the browser console
+      Reveal.addEventListener('slidechanged', function( event ) {
+        if (!console) return;
+        if (typeof console.clear == 'function') console.clear();
+
+        notes = event.currentSlide.querySelector(".notes");
+        if(notes) {
+          if (typeof console.info == 'function') console.info(notes.innerHTML.replace(/\n\s+/g,'\n'));
+        }
+      });
+
+		</script>
+
+	</body>
+</html>

@@ -20,6 +20,8 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
 
+    <link rel="stylesheet" href="./main.css">
+
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
 			document.write( '<link rel="stylesheet" href="../reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
@@ -50,7 +52,7 @@
 
         <!-- guitarist -->
 				<section>
-          <img src="img/swingalicious.png">
+          <img src="img/swingalicious.png" alt="">
 					<aside class="notes">
 					  - setup guitar (strings lower, change position)
 					  - practice all day to get technique to play licks fast enough
@@ -85,27 +87,45 @@
         <!-- Pimp your Editor Intro -->
         <section>
           <section>
-            <h2>Pimp your Editor</h2>
+            <h1>Pimp your Editor</h1>
+          </section>
+          <section>
+            <div id="tickers">
+              <div class="float-left">
+                <img alt="" width="450" src="img/reach-for-arrow-keys.gif">
+                <p id="arrow-keys-ticker">1234</p>
+              </div>
+              <div class="float-left">
+                <img alt="" height="180" src="img/massage-pinky.gif">
+                <p id="massage-pinky-ticker">55</p>
+              </div>
+              <div class="float-left">
+                <img alt="" src="img/spinner.gif">
+                <p id="waiting-ide-ticker">999</p>
+              </div>
+              <p class="fragment zoom-in" id="vim-ticker">1000000000002324</p>
+            </div>
           </section>
           <section>
             <h2>Vim</h2>
-            <img src="img/vim.jpg">
+            <img src="img/vim.jpg" alt="">
           </section>
 
           <section>
             <div>
-              <img src="img/terminal.png" style="float:left">
-              <img src="img/running-away.jpg" style="float:left">
+              <img src="img/terminal.png" alt="" style="float:left">
+              <img src="img/running-away.jpg" alt="" style="float:left">
+            </div>
           </section>
 
           <section>
             <h2>Mac Vim</h2>
-            <img src="img/mvim.jpg">
+            <img src="img/mvim.jpg" alt="">
           </section>
 
           <section>
             <h2>GVim</h2>
-            <img src="img/gvim.png">
+            <img src="img/gvim.png" alt="">
           </section>
           <section>
             <h1>The End</h1>
@@ -129,9 +149,9 @@
           </section>
           <section>
             <h2>Point out Syntax Errors</h2>
-            <img src="img/syntax-error.png">
+            <img src="img/syntax-error.png" alt="">
             <div class="fragment zoom-in">
-              <img src="img/syntax-error-pointed-out.png">
+              <img src="img/syntax-error-pointed-out.png" alt="">
               <p><a href="https://github.com/scrooloose/syntastic">syntastic</a></p>
           </div>
           </section>
@@ -211,6 +231,6 @@
       });
 
 		</script>
-
+    <script src="./main.js"></script>
 	</body>
 </html>

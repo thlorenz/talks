@@ -24,7 +24,22 @@
 .float-left {
   float: left;
 }
+.reveal .resources .float-left {
+  margin-left: 100px;
+} 
 
+.reveal .resources ul,
+.reveal .resources h4 {
+  display: block;
+  text-align: left;
+}
+.reveal .resources h4 {
+  margin: 100px 10px 5px 10px;
+}
+
+.reveal .resources ul li {
+  list-style: none;
+}
 /* Reveal Overrides */
 .reveal section img {
   border: none;

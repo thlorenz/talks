@@ -83,7 +83,10 @@
           <section>
             <h2>Troubleshooting</h2>
             <p class="fragment highlight-green">Test</p>
-            <p class="fragment highlight-green">Debug</p>
+            <div class="fragment highlight-green">
+              <p>Log</p>
+              <p>Debug</p>
+            </div>
           </section>
         </section>
 
@@ -174,13 +177,16 @@
 
         <section>
           <section>
-            <h1>DEMO</h1>
-            <img src="img/computer-cat.gif" alt="">
+            <h1>Live in your code</h1>
             <aside class="notes">
               - live in your code
               - interact with 3rd party code like it was your own
               - add log statements if needed, etc.
             </aside>
+          </section>
+          <section>
+            <h2>DEMO</h2>
+            <img src="img/computer-cat.gif" alt="">
           </section>
         </section>
         
@@ -291,13 +297,95 @@
           </section>
         </section>
 
-        <!-- markdown -->
+        <!-- Test -->
         <section>
-          <div data-markdown>
-            <script type="text/template">
-              ## Markdown slide with notes
-            </script>
+          <section>
+            <h1>Test</h1>
+          </section>
+          <section>
+            <h2><a href="https://github.com/defunctzombie/zuul">Zuul</a></h2>
+            <img src="img/zuul.gif" alt="">
+            <a href="http://thlorenz.com/blog/live-editing-browserify">Live edit browserified code in chrome devtools</a>
+            <aside class="notes">
+              - jump to problem quickly
+              - no context switching
+              - needs improvement (full path)
+            </aside>
+          </section>
+        </section>
+
+        <!-- Exciting? -->
+        <section>
+          <section>
+            <h1>Exciting enough?</h1>
+            <img class="fragment roll-in" src="img/waiting-in-line.jpg" alt="">
+          </section>
+        </section>
+
+
+        <!--Tips -->
+        <section>
+          <section>
+            <h1>Tips</h1>
+          </section>
+          <section>
+            <h2>Small Modules for quicker inspection</h2>
+            <img src="img/substack.jpeg" alt="">
+            <aside class="notes">
+              - unit test separate logic on cli
+              - integration test UI
+            </aside>
+          </section>
+          <section>
+            <h2>Avoid build steps</h2>
+            <img src="img/dont-build.jpg" alt="">
+            <aside class="notes">
+              - quick feedback during development
+              - refresh what you changed quickly
+              - zuul, beefy do that
+            </aside>
+          </section>
+        </section>
+        <!-- Resources -->
+        <section>
+          <div class="resources">
+          <h2>Resources</h2>
+
+
+          <div class="float-left">
+            <h4> Live inside Your Code</h4>
+
+            <ul>
+              <li><a href="http://nodejs.org/api/repl.html">node repl</a></li>
+              <li><a href="http://thlorenz.github.io/replpad/">replpad</a></li>
+            </ul>
+
+            <h4>Pimp Your Editor</h4>
+            <ul>
+              <li><a href="http://www.vim.org/">vim</a></li>
+              <li><a href="http://www.jshint.com/docs/">jshint</a></li>
+              <li><a href="https://github.com/thlorenz/dotfiles">thlorenz/dotfiles</a></li>
+            </ul>
+
           </div>
+          <div class="float-left">
+          <h4> Debugging</h4>
+
+          <ul>
+            <li><a href="http://nodejs.org/api/debugger.html">command line</a></li>
+            <li><a href="https://github.com/node-inspector/node-inspector">node-inspector</a></li>
+          </ul>
+
+          <h4> Browser</h4>
+
+          <ul>
+            <li><a href="https://github.com/substack/node-browserify">browserify</a></li>
+            <li><a href="https://github.com/chrisdickinson/beefy">beefy</a></li>
+            <li><a href="https://github.com/defunctzombie/zuul">zuul</a></li>
+            <li><a href="http://thlorenz.com/blog/live-editing-browserify">browserify/devtools</a></li>
+          </ul>
+        </div>
+        </div>
 
           <aside class="notes">
           </aside>

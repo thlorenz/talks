@@ -24,3 +24,8 @@
 .float-left {
   float: left;
 }
+
+/* Reveal Overrides */
+.reveal section img {
+  border: none;
+}

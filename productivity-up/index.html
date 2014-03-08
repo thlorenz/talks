@@ -26,6 +26,15 @@
 		<script>
 			document.write( '<link rel="stylesheet" href="../reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
+    <style type="text/css">
+      body {
+        background: url(img/background.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+    </style>
 
 		<!--[if lt IE 9]>
 		<script src="../reveal/lib/js/html5shiv.js"></script>
@@ -338,7 +347,7 @@
           </section>
           <section>
             <h2>Small Modules for quicker inspection</h2>
-            <img src="img/substack.jpeg" alt="">
+            <img src="img/lego-pieces.jpg" alt="">
             <aside class="notes">
               - unit test separate logic on cli
               - integration test UI

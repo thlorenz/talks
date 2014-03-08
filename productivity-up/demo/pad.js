@@ -1,9 +1,5 @@
 'use strict';
 
-var fs = require('fs')
-  , path = require('path')
-  , cheerio = require('cheerio')
+var esprima = require('esprima');
 
-var html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
-
-var c = cheerio(html)
+var js = 'var a = 2; function foo() { console.log(a); } foo();';

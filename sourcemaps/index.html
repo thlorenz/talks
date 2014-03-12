@@ -108,17 +108,7 @@
           <a href="http://sokra.github.io/source-map-visualization/">source-map-visualization</a>
         </section>
 
-        <section class="coffee-bundled">
-          <h2>Coffee</h2>
-          <!-- TODO: Threejs demo pic coffee annotated and link to demo -->
-          <img src="img/es6-bundle-annotated.png" alt="annotated-coffeeify">
-          <a href="https://github.com/substack/coffeeify">coffeeify</a>
-          <aside class="notes">
-            - how to map from js back to the coffee
-            - show three.js demo - hitting breakpoints
-          </aside>
-        </section>
-
+        <!-- ES6 -->
         <section class="es6-bundled">
           <h2>ES6 bundled</h2>
           <img src="img/es6-bundle-annotated.png" alt="annotated-es6">
@@ -129,6 +119,7 @@
         </section>
 
 
+        <!-- Sass -->
         <section class="sass-bundled">
           <h2>SASS bundled</h2>
           <div>
@@ -138,6 +129,7 @@
           <a href="https://github.com/thlorenz/sass-resolve">sass-resolve</a>
         </section>
 
+        <!-- Zuul -->
         <section class="zuul">
           <h2><a href="https://github.com/defunctzombie/zuul">Zuul</a></h2>
           <p>maps stack traces with <a href="https://github.com/thlorenz/stack-mapper">stack-mapper</a></p>
@@ -145,6 +137,7 @@
           <a href="http://thlorenz.com/blog/live-editing-browserify">Live edit browserified code in chrome devtools</a>
         </section>
 
+        <!-- How to provide -->
         <section>
           <section>
             <h1>How to provide source maps</h1>
@@ -249,13 +242,33 @@
             <h1>How does it work with browserify?</h1>
           </section>
           <section>
-            <h2>ES6 -> JS File -> Bundle (remapped)</h2>
+            <h2>ES6/CoffeeScript/Dodge -> JS File -> Bundle (remapped)</h2>
             <aside class="notes">
               - explain in detail
+              - simpler when not transpiled, becomes clearer after coffeescript example
             </aside>
           </section>
-        </section>
 
+          <!-- Coffee -->
+          <section class="bundle">
+            <h2>CoffeeScript compiled with source maps</h2>
+            <img src="img/coffee-separate.png" alt="bundle">
+          </section>
+          <section class="bundle">
+            <h2>browserify bundle</h2>
+            <img src="img/coffee-bundled.png" alt="bundle">
+          </section>
+          <section class="bundle">
+            <h2>browserify bundle</h2>
+            <img src="img/coffee-bundled-annotated.png" alt="annotated-bundle">
+            <a href="https://github.com/substack/coffeeify">coffeeify</a>
+          </section>
+          <section class="bundle">
+            <h2><a href="http://thlorenz.github.com/WebGLCraft/">Debug CoffeeScript</a></h2>
+            <img src="https://raw.github.com/thlorenz/WebGLCraft/master/assets/devtools-breakpoint.png" alt="bundle">
+          </section>
+
+        </section>
 
         <!-- footer page -->
 				<section>

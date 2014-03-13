@@ -99,10 +99,13 @@
             <h2>browserify bundle</h2>
             <img src="img/bundle-annotated.png" alt="annotated-bundle">
           </section>
+          <section class="bundle">
+            <h2>The perfect Illusion</h2>
+            <img src="img/illusion.jpg" alt="bundle">
+          </section>
         </section>
 
         <section class="coffee-script">
-          <h2>Transpilers</h2>
           <iframe id="souce-map-visualization" src="http://sokra.github.io/source-map-visualization/#simple-coffee"
             width="1000" height="800" allowfullscreen></iframe>
           <a href="http://sokra.github.io/source-map-visualization/">source-map-visualization</a>
@@ -112,7 +115,7 @@
         <section class="es6-bundled">
           <h2>ES6 bundled</h2>
           <img src="img/es6-bundle-annotated.png" alt="annotated-es6">
-          <a href="https://github.com/thlorenz/es6ify">es6ify</a>
+          <a href="http://thlorenz.github.io/es6ify/">es6ify</a>
           <aside class="notes">
             - show es6ify demo - hitting breakpoints
           </aside>
@@ -129,18 +132,10 @@
           <a href="https://github.com/thlorenz/sass-resolve">sass-resolve</a>
         </section>
 
-        <!-- Zuul -->
-        <section class="zuul">
-          <h2><a href="https://github.com/defunctzombie/zuul">Zuul</a></h2>
-          <p>maps stack traces with <a href="https://github.com/thlorenz/stack-mapper">stack-mapper</a></p>
-          <img src="img/zuul.gif" alt="">
-          <a href="http://thlorenz.com/blog/live-editing-browserify">Live edit browserified code in chrome devtools</a>
-        </section>
-
         <!-- How to provide -->
         <section>
           <section>
-            <h1>How to provide source maps</h1>
+            <h2>How to provide source maps</h2>
           </section>
 
           <section>
@@ -152,15 +147,6 @@
               ```
             </script>
           </div>
-          </section>
-
-          <section>
-            <h2>External Map File</h2>
-            <h2>Demo</h2>
-            <img src="img/computer-cat.gif" alt="">
-            <aside class="notes">
-              - at this point demo browserifying
-            </aside>
           </section>
 
           <section class="formats-external">
@@ -205,51 +191,35 @@
           </section>
         </section>
 
-        <!-- How does it work? -->
-        <section>
+        <!-- Zuul -->
+        <section class="zuul">
           <section>
-            <h1>How does it work?</h1>
+            <h2><a href="https://github.com/defunctzombie/zuul">Zuul</a></h2>
+            <ul>
+              <li class="fragment roll-in">maps stack traces with <a href="https://github.com/thlorenz/stack-mapper">stack-mapper</a></li>
+              <li class="fragment roll-in">source maps in separate file</li>
+              <li class="fragment roll-in">source maps include actual code</li>
+            </ul>
+
           </section>
           <section>
-            <h2>VLQ Encoding</h2>
-            <aside class="notes">
-              - we saw filenames and content
-              - what are these weird symbols in mappings that look like the DNA?
-            </aside>
-          </section>
-          <section>
-            <h2>VLQ Encoding</h2>
-            <a>html5rocks post</a>
-            <aside class="notes">
-              - post explains everything about source maps including VLQ
-            </aside>
-          </section>
-          <section>
-            <h2>VLQ Encoding</h2>
-            <p>Midi</p>
-            <aside class="notes">
-              - talk about it in detail here
-              - midi reversed
-              - bit shifting
-              - show code samples from source map module
-            </aside>
+            <h2><a href="https://github.com/defunctzombie/zuul">Zuul</a></h2>
+            <img src="img/zuul.gif" alt="">
+            <a href="http://thlorenz.com/blog/live-editing-browserify">Live edit browserified code in chrome devtools</a>
           </section>
         </section>
 
         <!-- How does it work with browserify? -->
         <section>
           <section>
-            <h1>How does it work with browserify?</h1>
-          </section>
-          <section>
-            <h2>ES6/CoffeeScript/Dodge -> JS File -> Bundle (remapped)</h2>
-            <aside class="notes">
-              - explain in detail
-              - simpler when not transpiled, becomes clearer after coffeescript example
-            </aside>
+            <h2>How does it work with browserify?</h2>
           </section>
 
           <!-- Coffee -->
+          <section class="bundle">
+            <h2><a href="http://thlorenz.github.com/WebGLCraft/">Debug CoffeeScript</a></h2>
+            <img src="https://raw.github.com/thlorenz/WebGLCraft/master/assets/devtools-breakpoint.png" alt="bundle">
+          </section>
           <section class="bundle">
             <h2>CoffeeScript compiled with source maps</h2>
             <img src="img/coffee-separate.png" alt="bundle">
@@ -263,11 +233,31 @@
             <img src="img/coffee-bundled-annotated.png" alt="annotated-bundle">
             <a href="https://github.com/substack/coffeeify">coffeeify</a>
           </section>
-          <section class="bundle">
-            <h2><a href="http://thlorenz.github.com/WebGLCraft/">Debug CoffeeScript</a></h2>
-            <img src="https://raw.github.com/thlorenz/WebGLCraft/master/assets/devtools-breakpoint.png" alt="bundle">
-          </section>
 
+        </section>
+
+        <!-- How do mappings work? -->
+        <section>
+          <section>
+            <h2>How do the mappings work?</h2>
+          </section>
+          <section>
+            <h2>How do the mappings work?</h2>
+            <pre><code>"mappings": "AAAA;ACAA;AACA;AACA;AACA;AACA;AACA;;ACLA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;ACPA;AACA;AACA;AACA;AACA;AACA"</code></pre>
+            <ul>
+              <li class="fragment roll-in"><a href="http://en.wikipedia.org/wiki/Variable-length_quantity">VLQ</a> Encoded to save space</li>
+              <li class="fragment roll-in">original sourcemap was 10 times the size of the generated code</li>
+              <li class="fragment roll-in">using VLQ it's 2.25 times</li>
+              <li class="fragment roll-in"><a href="http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/#toc-base64vlq">html5rocks post</a></li>
+            </ul>
+            <aside class="notes">
+              - what are these weird symbols in mappings that look like the DNA?
+              - lines are kept count by the semi colons
+              - inspired by midi
+              - lots of bit shifting
+              - post explains everything about source maps including VLQ
+            </aside>
+          </section>
         </section>
 
         <!-- footer page -->
@@ -313,7 +303,6 @@
 
       // show notes in the browser console
       Reveal.addEventListener('slidechanged', function( event ) {
-        return;
         if (!console) return;
         if (typeof console.clear == 'function') console.clear();
 

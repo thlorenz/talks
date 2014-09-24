@@ -20,6 +20,14 @@
 
 # Looking at Node.js
 
+```
+~/dev/js/node
+➝  ls deps
+cares       http_parser mdb_v8      npm         openssl     uv          v8          zlib
+```
+
+# Looking at Node.js
+
 - embedds v8 to *run* JavaScript
 - calls out to **libuv** to handle system calls
 - additional libraries used for other tasks, i.e. **http-parser**
@@ -38,6 +46,7 @@ var binding = process.binding('fs');
 # fs module
 
 ```cpp
+// file.cc
 void InitFs(Handle<Object> target,
             Handle<Value> unused,
             Handle<Context> context,
@@ -59,6 +68,7 @@ NODE_MODULE_CONTEXT_AWARE_BUILTIN(fs, node::InitFs)
 # fs module
 
 ```js
+// fs.js
 fs.readdir = function(path, callback) {
   callback = makeCallback(callback);
   if (!nullCheck(path, callback)) return;
@@ -68,7 +78,18 @@ fs.readdir = function(path, callback) {
 
 # fs module
 
+```js
+// fs.js
+fs.readdirSync = function(path) {
+  nullCheck(path);
+  return binding.readdir(pathModule._makeLong(path));
+};
+```
+
+# fs module
+
 ```cpp
+// file.cc
 static void ReadDir(const FunctionCallbackInfo<Value>& args) {
   HandleScope scope(env->isolate());
 
@@ -81,7 +102,14 @@ static void ReadDir(const FunctionCallbackInfo<Value>& args) {
   } else {
     SYNC_CALL(readdir, *path, *path, 0 /*flags*/)
 
-    // ...
+    char* namebuf = static_cast<char*>(SYNC_REQ.ptr);
+    uint32_t nnames = SYNC_REQ.result;
+    Local<Array> names = Array::New(env->isolate(), nnames);
+
+    for (uint32_t i = 0; i < nnames; ++i) {
+      names->Set(i, String::NewFromUtf8(env->isolate(), namebuf));
+      namebuf += strlen(namebuf) + 1;
+    }
 
     args.GetReturnValue().Set(names);
   }
@@ -384,7 +412,7 @@ DEMO
 - works out of the box with most projects
 - minor tweaks to make it work with others
 
-# nad leveldb
+# nad leveldown
 
 - demo
 

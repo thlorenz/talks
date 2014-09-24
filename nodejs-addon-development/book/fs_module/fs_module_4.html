@@ -33,7 +33,7 @@
 
 
         
-    <div class="book" data-level="4.4" data-basepath=".." data-revision="1411585906422">
+    <div class="book" data-level="4.4" data-basepath=".." data-revision="1411595134977">
     
 
 <div class="book-summary">
@@ -132,6 +132,28 @@
                 
             
             
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="looking_at_node_js/looking_at_node_js_1.html">
+            
+                
+                    <a href="../looking_at_node_js/looking_at_node_js_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         Looking at Node.js 1
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         
@@ -225,6 +247,22 @@
                             <b>4.5.</b>
                         
                          fs module 5
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.6" data-path="fs_module/fs_module_6.html">
+            
+                
+                    <a href="../fs_module/fs_module_6.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                         fs module 6
                     </a>
                 
             
@@ -647,15 +685,15 @@
         </li>
     
         
-        <li class="chapter " data-level="16" data-path="nad_leveldb/nad_leveldb_0.html">
+        <li class="chapter " data-level="16" data-path="nad_leveldown/nad_leveldown_0.html">
             
                 
-                    <a href="../nad_leveldb/nad_leveldb_0.html">
+                    <a href="../nad_leveldown/nad_leveldown_0.html">
                         <i class="fa fa-check"></i>
                         
                             <b>16.</b>
                         
-                         nad leveldb
+                         nad leveldown
                     </a>
                 
             
@@ -770,7 +808,8 @@
                     <section class="normal" id="section-gitbook_12">
                     
                         <h1 id="fs-module">fs module</h1>
-<pre><code class="lang-js">fs.readdir = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(path, callback)</span> </span>{
+<pre><code class="lang-js"><span class="hljs-comment">// fs.js</span>
+fs.readdir = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(path, callback)</span> </span>{
   callback = makeCallback(callback);
   <span class="hljs-keyword">if</span> (!nullCheck(path, callback)) <span class="hljs-keyword">return</span>;
   binding.readdir(pathModule._makeLong(path), callback);

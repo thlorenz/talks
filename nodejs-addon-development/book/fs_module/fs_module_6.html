@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>What Is a Node.js Addon? | Node.js Addon Development</title>
+        <title>fs module 6 | Node.js Addon Development</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.1.0">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../what_is_a_node_js_addon_/what_is_a_node_js_addon__1.html" />
+    <link rel="next" href="../readdirsync/readdirsync_0.html" />
     
     
-    <link rel="prev" href="../node_js_addon_development/node_js_addon_development_0.html" />
+    <link rel="prev" href="../fs_module/fs_module_5.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book" data-level="2" data-basepath=".." data-revision="1411595134977">
+    <div class="book" data-level="4.6" data-basepath=".." data-revision="1411595134977">
     
 
 <div class="book-summary">
@@ -81,7 +81,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="2" data-path="what_is_a_node_js_addon_/what_is_a_node_js_addon__0.html">
+        <li class="chapter " data-level="2" data-path="what_is_a_node_js_addon_/what_is_a_node_js_addon__0.html">
             
                 
                     <a href="../what_is_a_node_js_addon_/what_is_a_node_js_addon__0.html">
@@ -254,7 +254,7 @@
         </li>
     
         
-        <li class="chapter " data-level="4.6" data-path="fs_module/fs_module_6.html">
+        <li class="chapter active" data-level="4.6" data-path="fs_module/fs_module_6.html">
             
                 
                     <a href="../fs_module/fs_module_6.html">
@@ -805,12 +805,35 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_30">
+                    <section class="normal" id="section-gitbook_14">
                     
-                        <h1 id="what-is-a-nodejs-addon">What Is a Node.js Addon?</h1>
-<ul>
-<li>any library that needs to access C/C++ functionality</li>
-</ul>
+                        <h1 id="fs-module">fs module</h1>
+<pre><code class="lang-cpp"><span class="hljs-comment">// file.cc</span>
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> ReadDir(<span class="hljs-keyword">const</span> FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  HandleScope scope(env-&gt;isolate());
+
+  <span class="hljs-comment">// ...</span>
+
+  node::Utf8Value path(args[<span class="hljs-number">0</span>]);
+
+  <span class="hljs-keyword">if</span> (args[<span class="hljs-number">1</span>]-&gt;IsFunction()) {
+    ASYNC_CALL(readdir, args[<span class="hljs-number">1</span>], *path, <span class="hljs-number">0</span> <span class="hljs-comment">/*flags*/</span>)
+  } <span class="hljs-keyword">else</span> {
+    SYNC_CALL(readdir, *path, *path, <span class="hljs-number">0</span> <span class="hljs-comment">/*flags*/</span>)
+
+    <span class="hljs-keyword">char</span>* namebuf = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">char</span>*&gt;(SYNC_REQ.ptr);
+    uint32_t nnames = SYNC_REQ.result;
+    Local&lt;Array&gt; names = Array::New(env-&gt;isolate(), nnames);
+
+    <span class="hljs-keyword">for</span> (uint32_t i = <span class="hljs-number">0</span>; i &lt; nnames; ++i) {
+      names-&gt;Set(i, String::NewFromUtf8(env-&gt;isolate(), namebuf));
+      namebuf += <span class="hljs-built_in">strlen</span>(namebuf) + <span class="hljs-number">1</span>;
+    }
+
+    args.GetReturnValue().Set(names);
+  }
+}
+</code></pre>
 
                     
                     </section>
@@ -821,10 +844,10 @@
         </div>
 
         
-        <a href="../node_js_addon_development/node_js_addon_development_0.html" class="navigation navigation-prev " aria-label="Previous page: Node.js Addon Development"><i class="fa fa-angle-left"></i></a>
+        <a href="../fs_module/fs_module_5.html" class="navigation navigation-prev " aria-label="Previous page: fs module 5"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../what_is_a_node_js_addon_/what_is_a_node_js_addon__1.html" class="navigation navigation-next " aria-label="Next page: What Is a Node.js Addon? 1"><i class="fa fa-angle-right"></i></a>
+        <a href="../readdirsync/readdirsync_0.html" class="navigation navigation-next " aria-label="Next page: readdirSync"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

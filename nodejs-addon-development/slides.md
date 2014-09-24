@@ -111,7 +111,7 @@ static void ReadDir(const FunctionCallbackInfo<Value>& args) {
 
 # readdirSync
 
-![confused](/img/confused.jpg)
+![confused](img/confused.jpg)
 
 WHAT???
 
@@ -168,7 +168,7 @@ SYNC_DEST_CALL(path, dest)
 
 # readdir (async)
 
-![more confused](/img/confused-neutrino.png)
+![more confused](img/confused-neutrino.png)
 
 WTF?!?!?
 

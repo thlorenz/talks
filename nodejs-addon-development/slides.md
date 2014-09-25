@@ -10,6 +10,10 @@
   <small>twitter <a href="http://twitter.com/thlorenz">@thlorenz</a>  |  github  <a href="http://github/thlorenz">@thlorenz</a>  |  irc  thlorenz</small>
 </p>
 
+# Get the Book
+
+In case you want to read the slides on an Ebook reader [download the mobi version](https://github.com/thlorenz/talks/blob/gh-pages/nodejs-addon-development/nodejs-addon-development.mobi?raw=true).
+
 # What Is a Node.js Addon?
 
 - any library that needs to access C/C++ functionality

@@ -135,7 +135,7 @@ var header = fs.readFileSync(path.join(__dirname, 'my-header.html'), 'utf8')
 
 - `require`d modules and static header are **created once** and stay in memory for the life time of the server
 
-<!-- speaker notes
+<!-- notes
 - these are shared for each processed request
 -->
 
@@ -211,7 +211,7 @@ function onrequest(req, res) {
 
 ![fish-tank](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/fish-tank.png)
 
-<!-- speaker notes
+<!-- notes
 - if Bobby was to hold on to each fish he gets and keep them in an aquarium it'd flow over at some point
 -->
 
@@ -227,7 +227,7 @@ function onrequest(req, res) {
 
 1. registered event handlers
 
-<!-- speaker notes
+<!-- notes
 - specifically relating to node
 - in the browser it's different (mostly DOM nodes hanging around)
 -->
@@ -250,7 +250,7 @@ function onrequest(req, res) {
 3. registered event handlers
 4. leaking connections  
 
-<!-- speaker notes
+<!-- notes
 - i.e. when a request fails but the connection isn't properly cleaned up
 -->
 
@@ -308,7 +308,7 @@ function onrequest(req, res) {
 
 ![demo](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/demo.jpg)
 
-<!-- speaker notes
+<!-- notes
 - crash process
 - increasing memory by itself doesn't prove leak until it hits 1.5GB
 - increasing memory although we repeatedly trigger garbage collection indicates a leak
@@ -338,12 +338,18 @@ function onrequest(req, res) {
 
 ![demo](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/demo.jpg)
 
-<!-- speaker notes
+<script>
+typeof console.clear === 'function' && console.clear()
+console.log(
+function speakerNotes() {
+/* 
 - Instruments and DevTools using heapdump module
 - mention 
   - function closures problem
   - naming function declarations to show up in heapdump
--->
+*/}
+.toString().split('\n').slice(2, -1).join('\n'))
+</script>
 
 # Trouble Shooting Leaks
 

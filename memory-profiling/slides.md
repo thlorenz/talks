@@ -1,8 +1,8 @@
 # Memory Profiling For Mere Mortals 
 
-#### Or why Bobby Shouldn't be so Greedy
+#### Or why Bobby Shouldnt be so Greedy
 
-![toystory](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory.png)
+![toystory](img/toystory.png)
 
 <p style="text-align: center;">
   <small><a href="http://thlorenz.com">Thorsten Lorenz</a></small>
@@ -13,92 +13,92 @@
 
 # Toy Story
 
-![toystory-1](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-1.png)
+![toystory-1](img/toystory-1.png)
 
 # Toy Story
 
-![toystory-2](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-2.png)
+![toystory-2](img/toystory-2.png)
 
 # Toy Story
 
-![toystory-3](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-3.png)
+![toystory-3](img/toystory-3.png)
 
 # Toy Story
 
-![toystory-4](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-4.png)
+![toystory-4](img/toystory-4.png)
 
 # Toy Story
 
-![toystory-5](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-5.png)
+![toystory-5](img/toystory-5.png)
 
 # Toy Story
 
-![toystory-6](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-6.png)
+![toystory-6](img/toystory-6.png)
 
 # Toy Story
 
-![toystory-7](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-7.png)
+![toystory-7](img/toystory-7.png)
 
 # Toy Story
 
-![toystory-8](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-8.png)
+![toystory-8](img/toystory-8.png)
 
 # Toy Story
 
-![toystory-9](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-9.png)
+![toystory-9](img/toystory-9.png)
 
 # Toy Story
 
-![toystory-10](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-10.png)
+![toystory-10](img/toystory-10.png)
 
 # Toy Story
 
-![toystory-11](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-11.png)
+![toystory-11](img/toystory-11.png)
 
 # Toy Story
 
-![toystory-12](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-12.png)
+![toystory-12](img/toystory-12.png)
 
 # Toy Story
 
-![toystory-13](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-13.png)
+![toystory-13](img/toystory-13.png)
 
 # Toy Story
 
-![toystory-14](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-14.png)
+![toystory-14](img/toystory-14.png)
 
 # Toy Story
 
-![toystory-15](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-15.png)
+![toystory-15](img/toystory-15.png)
 
 # Toy Story
 
-![toystory-16](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-16.png)
+![toystory-16](img/toystory-16.png)
 
 # Toy Story
 
-![toystory-17](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-17.png)
+![toystory-17](img/toystory-17.png)
 
 # Toy Story
 
-![toystory-18](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/toystory-18.png)
+![toystory-18](img/toystory-18.png)
 
 # Server
 
 ```js
-var http           = require('http')
-  , fs             = require('fs')
-  , path           = require('path')
-  , templateEngine = require('any-template-engine')
+var http           = require(http)
+  , fs             = require(fs)
+  , path           = require(path)
+  , templateEngine = require(any-template-engine)
 
-var header = fs.readFileSync(path.join(__dirname, 'my-header.html'), 'utf8')
+var header = fs.readFileSync(path.join(__dirname, my-header.html), utf8)
 
 // [ ...]
 
 function onrequest(req, res) {
   var context = getContext(req);
 
-  fs.readFile(path.join(__dirname, 'index.html'), 'utf8', function onreadIndex(err, src) {
+  fs.readFile(path.join(__dirname, index.html), utf8, function onreadIndex(err, src) {
     if (err) return console.error(err)
     var html = header + templateEngine(src, context)
     serve(html)
@@ -112,12 +112,12 @@ function onrequest(req, res) {
 ## House and Chimney
 
 ```js
-var http           = require('http')
-  , fs             = require('fs')
-  , path           = require('path')
-  , templateEngine = require('any-template-engine')
+var http           = require(http)
+  , fs             = require(fs)
+  , path           = require(path)
+  , templateEngine = require(any-template-engine)
 
-var header = fs.readFileSync(path.join(__dirname, 'my-header.html'), 'utf8')
+var header = fs.readFileSync(path.join(__dirname, my-header.html), utf8)
 ```
 
 # Server
@@ -125,12 +125,12 @@ var header = fs.readFileSync(path.join(__dirname, 'my-header.html'), 'utf8')
 ## House and Chimney
 
 ```js
-var http           = require('http')
-  , fs             = require('fs')
-  , path           = require('path')
-  , templateEngine = require('any-template-engine')
+var http           = require(http)
+  , fs             = require(fs)
+  , path           = require(path)
+  , templateEngine = require(any-template-engine)
 
-var header = fs.readFileSync(path.join(__dirname, 'my-header.html'), 'utf8')
+var header = fs.readFileSync(path.join(__dirname, my-header.html), utf8)
 ```
 
 - `require`d modules and static header are **created once** and stay in memory for the life time of the server
@@ -147,7 +147,7 @@ var header = fs.readFileSync(path.join(__dirname, 'my-header.html'), 'utf8')
 function onrequest(req, res) {
   var context = getContext(req);
 
-  fs.readFile(path.join(__dirname, 'index.html'), 'utf8', function onreadIndex(err, src) {
+  fs.readFile(path.join(__dirname, index.html), utf8, function onreadIndex(err, src) {
     if (err) return console.error(err)
     var html = header + templateEngine(src, context)
     serve(html)
@@ -163,7 +163,7 @@ function onrequest(req, res) {
 function onrequest(req, res) {
   var context = getContext(req);
 
-  fs.readFile(path.join(__dirname, 'index.html'), 'utf8', function onreadIndex(err, src) {
+  fs.readFile(path.join(__dirname, index.html), utf8, function onreadIndex(err, src) {
     if (err) return console.error(err)
     var html = header + templateEngine(src, context)
     serve(html)
@@ -181,7 +181,7 @@ function onrequest(req, res) {
 function onrequest(req, res) {
   var context = getContext(req);
 
-  fs.readFile(path.join(__dirname, 'index.html'), 'utf8', function onreadIndex(err, src) {
+  fs.readFile(path.join(__dirname, index.html), utf8, function onreadIndex(err, src) {
     if (err) return console.error(err)
     var html = header + templateEngine(src, context)
     serve(html)
@@ -209,19 +209,19 @@ function onrequest(req, res) {
 > In an environment in which memory is managed by a garbage collector, a memory leak occurs when references to objects
 > are retained even though they are no longer needed by your program.
 
-![fish-tank](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/fish-tank.png)
+![fish-tank](img/fish-tank.png)
 
 <!-- notes
-- if Bobby was to hold on to each fish he gets and keep them in an aquarium it'd flow over at some point
+- if Bobby was to hold on to each fish he gets and keep them in an aquarium itd flow over at some point
 -->
 
 # Memory Leak
 
-> I'm not Bobby, I release what I no longer need
+> Im not Bobby, I release what I no longer need
 
 # Memory Leak
 
-![are-you-sure](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/are-you-sure.jpg)
+![are-you-sure](img/are-you-sure.jpg)
 
 # Memory Leak Causes
 
@@ -229,7 +229,7 @@ function onrequest(req, res) {
 
 <!-- notes
 - specifically relating to node
-- in the browser it's different (mostly DOM nodes hanging around)
+- in the browser its different (mostly DOM nodes hanging around)
 -->
 
 # Memory Leak Causes
@@ -251,7 +251,7 @@ function onrequest(req, res) {
 4. leaking connections  
 
 <!-- notes
-- i.e. when a request fails but the connection isn't properly cleaned up
+- i.e. when a request fails but the connection isnt properly cleaned up
 -->
 
 # Garbage Collector
@@ -263,38 +263,38 @@ function onrequest(req, res) {
 
 - what is a *Root* and that *retaining path* you speak about?
 
-<img width="350" src="https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/root.jpg"/> 
-<img width="350" src="https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/retaining-path.jpg"/>
+<img width="350" src="img/root.jpg"/> 
+<img width="350" src="img/retaining-path.jpg"/>
 
 # Garbage Collector
 
-![gc-nodes](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/gc-nodes.png)
+![gc-nodes](img/gc-nodes.png)
 
 [devtools/javascript-memory-profiling](https://developer.chrome.com/devtools/docs/javascript-memory-profiling)
 
 # Garbage Collector
 
-![gc-nodes](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/gc-nodes.png)
+![gc-nodes](img/gc-nodes.png)
 
 - node **1** is the *Root* node that *dominates* all other nodes
 
 # Garbage Collector
 
-![gc-nodes](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/gc-nodes.png)
+![gc-nodes](img/gc-nodes.png)
 
 - node **8** and **7** reference no other nodes, there *retaining size* is `0`
-- node **6** retains node **8**, therefore it's *retaining size* is the size of node **8**
+- node **6** retains node **8**, therefore its *retaining size* is the size of node **8**
 
 # Garbage Collector
 
-![gc-nodes](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/gc-nodes.png)
+![gc-nodes](img/gc-nodes.png)
 
 - nodes **9** and **10** are not reachable via the *Root* node and therefore are orphaned and subject to garbage
   collection
 
 # Garbage Collector
 
-![gc-nodes](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/gc-nodes.png)
+![gc-nodes](img/gc-nodes.png)
 
 - if we keep referencing nodes we no longer need we got ourselves a memory leak
 
@@ -306,11 +306,11 @@ function onrequest(req, res) {
 
 ## Demo Time
 
-![demo](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/demo.jpg)
+![demo](img/demo.jpg)
 
 <!-- notes
 - crash process
-- increasing memory by itself doesn't prove leak until it hits 1.5GB
+- increasing memory by itself doesnt prove leak until it hits 1.5GB
 - increasing memory although we repeatedly trigger garbage collection indicates a leak
 - only once you reach 1.5G do you prove you have a leak since v8 is does not aggressively collect for perf reasons
 - 1.5GB is heap allocated by v8 per Isolate, i.e. Tab or in our case Node.js process
@@ -336,20 +336,14 @@ function onrequest(req, res) {
 
 ## Demo Time
 
-![demo](https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/demo.jpg)
+![demo](img/demo.jpg)
 
-<script>
-typeof console.clear === 'function' && console.clear()
-console.log(
-function speakerNotes() {
-/* 
+<!-- notes
 - Instruments and DevTools using heapdump module
 - mention 
   - function closures problem
   - naming function declarations to show up in heapdump
-*/}
-.toString().split('\n').slice(2, -1).join('\n'))
-</script>
+-->
 
 # Trouble Shooting Leaks
 

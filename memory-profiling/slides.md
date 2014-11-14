@@ -67,6 +67,10 @@
 
 ![toystory-14](img/toystory-14.png)
 
+<!--
+- triceratops (threehorned dinosaur)
+-->
+
 # Toy Story
 
 ![toystory-15](img/toystory-15.png)
@@ -283,7 +287,7 @@ function onrequest(req, res) {
 ![gc-nodes](img/gc-nodes.png)
 
 - node **8** and **7** reference no other nodes, there *retaining size* is equal to its *shallow size* 
-- node **6** retains node **8**, therefore its *retaining size* is the it's own *shallow size* plus that of node **8**
+- node **6** retains node **8**, therefore its *retaining size* is the it's own *shallow size* plus the *retaining size* of node **8**
 
 # Garbage Collector
 
@@ -340,9 +344,36 @@ function onrequest(req, res) {
 
 <!-- notes
 - Instruments and DevTools using heapdump module
-- mention 
-  - function closures problem
-  - naming function declarations to show up in heapdump
+
+- Instruments 
+  - to look at things from a C++ perspective (a bit faster than taking heapdumps right away)
+-->
+
+
+# Trouble Shooting Leaks
+
+## IMPORTANT!!!
+
+![important](img/devtools-important.png)
+
+# Trouble Shooting Leaks
+
+## Demo Time
+
+![demo](img/demo.jpg)
+
+<!-- notes
+- Instruments and DevTools using heapdump module
+
+- Instruments 
+  - to look at things from a C++ perspective (a bit faster than taking heapdumps right away)
+
+- DevTools 
+  - show Object Allocation Tracker
+  - show closures
+  - show retainer view
+  - mention function closures problem
+  - mention naming function declarations to show up in heapdump
 -->
 
 # Trouble Shooting Leaks

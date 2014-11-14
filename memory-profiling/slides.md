@@ -282,8 +282,8 @@ function onrequest(req, res) {
 
 ![gc-nodes](img/gc-nodes.png)
 
-- node **8** and **7** reference no other nodes, there *retaining size* is `0`
-- node **6** retains node **8**, therefore its *retaining size* is the size of node **8**
+- node **8** and **7** reference no other nodes, there *retaining size* is equal to its *shallow size* 
+- node **6** retains node **8**, therefore its *retaining size* is the it's own *shallow size* plus that of node **8**
 
 # Garbage Collector
 

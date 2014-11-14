@@ -1,0 +1,11 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Demonstrates a memory leak and how to analyze it with help of the heapdump module and Chrome DevTools.",
+  "scripts": {
+    "start": "node --expose-gc --always-compact ./app"
+  },
+  "devDependencies": {
+    "heapdump": "~0.3.0"
+  }
+}

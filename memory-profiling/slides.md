@@ -363,17 +363,16 @@ function onrequest(req, res) {
 ![demo](img/demo.jpg)
 
 <!-- notes
-- Instruments and DevTools using heapdump module
-
-- Instruments 
-  - to look at things from a C++ perspective (a bit faster than taking heapdumps right away)
-
 - DevTools 
   - show Object Allocation Tracker
   - show closures
   - show retainer view
   - mention function closures problem
   - mention naming function declarations to show up in heapdump
+
+- functions shown in Instruments show what function caused object to be allocated
+- functions shown in DevTools are closing over allocated objects and prevent them from being collected
+
 -->
 
 # Trouble Shooting Leaks
@@ -381,6 +380,87 @@ function onrequest(req, res) {
 1. Reproduce (sometimes watching process with *top* suffices)
 2. Isolate and find Culprit (various approaches and tools like *Instruments* and *DevTools*)
 3. Fix the Leak :)
+
+# Considerations
+
+![considerations](img/considerations.jpg)
+
+# Name Your Functions
+
+![heapdump-noname](img/heapdump-noname.png)
+
+# Name Your Functions
+
+![heapdump-name](img/heapdump-name.png)
+
+# Name Your Functions
+
+```js
+var foo = function () {}
+```
+
+# Name Your Functions
+
+![no](img/no-1.jpg)
+
+# Name Your Functions
+
+```js
+var foo = function () {}
+```
+
+```js
+var foo = function foo() {}
+```
+
+# Name Your Functions
+
+```js
+Bar.prototype.foo = function () {}
+```
+
+# Name Your Functions
+
+<img src="img/no-2.jpeg" height="400">
+
+# Name Your Functions
+
+```js
+Bar.prototype.foo = function () {}
+```
+
+```js
+Bar.prototype.foo = function foo() {}
+```
+
+# Name Your Functions
+
+```js
+fs.readFile(file, function (err, src) {
+})
+```
+
+# Name Your Functions
+
+![no](img/no-3.jpg)
+
+# Name Your Functions
+
+```js
+fs.readFile(file, function (err, src) {
+})
+```
+
+```js
+fs.readFile(file, function onreadFile(err, src) {
+})
+```
+
+# Resources
+
+![v8-perf](img/v8-perf.png)
+
+[thlorenz.github.io/v8-perf/](https://thlorenz.github.io/v8-perf/)
 
 # Thanks!
 

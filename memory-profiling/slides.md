@@ -383,7 +383,7 @@ function onrequest(req, res) {
 
 1. Reproduce (sometimes watching process with *top* suffices)
 2. Isolate and find Culprit (various approaches and tools like *Instruments* and *DevTools*)
-3. Fix the Leak :)
+3. Fix the Leak :) [example code](https://github.com/thlorenz/talks/tree/gh-pages/memory-profiling/example)
 
 # Considerations
 

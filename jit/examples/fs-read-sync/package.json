@@ -1,0 +1,8 @@
+{
+  "name": "fs-read-sync",
+  "description": "Demonstrates how to track fs.readFileSync calls from C back to JS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

@@ -1,0 +1,25 @@
+From 28e13cc84d20156b79d03ef5b59dabc14aadd31e Mon Sep 17 00:00:00 2001
+From: Thorsten Lorenz <thlorenz@gmx.de>
+Date: Sun, 30 Nov 2014 15:43:26 -0500
+Subject: [PATCH] v8: flushing perf-<pid>.map file every time data is written
+ to it
+
+---
+ deps/v8/src/log.cc | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/deps/v8/src/log.cc b/deps/v8/src/log.cc
+index 0dcf6bb..4d9280c 100644
+--- a/deps/v8/src/log.cc
++++ b/deps/v8/src/log.cc
+@@ -291,6 +291,7 @@ void PerfBasicLogger::LogRecordedBuffer(Code* code,
+   base::OS::FPrint(perf_output_handle_, "%llx %x %.*s\n",
+                    reinterpret_cast<uint64_t>(code->instruction_start()),
+                    code->instruction_size(), length, name);
++  fflush(perf_output_handle_);
+ }
+ 
+ 
+-- 
+1.9.3 (Apple Git-50)
+

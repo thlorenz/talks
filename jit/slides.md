@@ -1,5 +1,7 @@
 # Look Ma No Assembly!!!
 
+![matrix](img/matrix.png)
+
 <p style="text-align: center;">
   <small><a href="http://thlorenz.com">Thorsten Lorenz</a></small>
 </p>
@@ -24,14 +26,16 @@
 
 # Demo Explained
 
+- start **lldb** debugger with target set to `~/dev/js/node/node --perf-basic-prof ./index.js`
+- using cloned **node** with `--perf-basic-prof` flag to cause `/tmp/perf-<pid>.map` file to be written
+
 ```
 lldb -- ~/dev/js/node/node --perf-basic-prof ./index.js
 ```
 
-- start **lldb** debugger with target set to `~/dev/js/node/node --perf-basic-prof ./index.js`
-- using cloned **node** with `--perf-basic-prof` flag to cause `/tmp/perf-<pid>.map` file to be written
-
 # Demo Explained
+
+- start server to let it initialize then break into it to add breakpoints
 
 ```
 (lldb) r
@@ -40,9 +44,10 @@ pid 30239
 Ctrl-C
 ```
 
-- start server to let it initialize then break into it to add breakpoints
-
 # Demo Explained
+
+- setting breakpoint on `uv_fs_read` function which gets invoked every time we read from a file
+- setting condition `cb==NULL` since that is the case when file is read synchronously
 
 ```
 (lldb) b -n uv_fs_read -c cb==NULL
@@ -55,20 +60,20 @@ Condition: cb==NULL
 (lldb) c
 Process 30239 resuming
 ```
-- setting breakpoint on `uv_fs_read` function which gets invoked every time we read from a file
-- setting condition `cb==NULL` since that is the case when file is read synchronously
-
 
 # Demo Explained
+
+- request main page from server which triggers our breakpoint
+- this proves we are performing synchronous file reads while serving a request, a big **NO-NO**
 
 ```
 curl localhost:8000
 ```
 
-- request main page from server which triggers our breakpoint
-- this proves we are performing synchronous file reads while serving a request, a big **NO-NO**
-
 # Demo Explained
+
+- stack traces only show C++/C symbols
+- assembly generated from JavaScript is showing hexadecimal memory address only *not very helpful*
 
 ```
 Process 30239 stopped
@@ -96,9 +101,6 @@ Process 30239 stopped
     [..] 
 ```
 
-- stack traces only show C++/C symbols
-- assembly generated from JavaScript is showing hexadecimal memory address only *not very helpful*
-
 # Demo Explained
 
 - **`perf-<pid>.map`** file contains mappings from hexacecimal addresses to *JavaScript symbols*
@@ -123,10 +125,10 @@ Address      Size  Symbol
 
 # Demo Explained
 
-- using the `/tmp/perf-<pid>.map` file we can use [resolve-jit-symbols](https://github.com/thlorenz/resolve-jit-symbols) to resolve these addresses
+- we can resolve these addresses from the `/tmp/perf-<pid>.map` with help of [resolve-jit-symbols](https://github.com/thlorenz/resolve-jit-symbols)
 
 ```
-cat stack.txt | rjs perf-<pid>.map
+pbpaste | rjs perf-<pid>.map
 ```
 
 # Demo Explained
@@ -134,7 +136,7 @@ cat stack.txt | rjs perf-<pid>.map
 - we can make it a bit more readable with [pretty-trace](https://github.com/thlorenz/pretty-trace)
 
 ```
-cat stack.txt | rjs perf-<pid>.map | pretty-trace
+pbpaste | rjs perf-<pid>.map | pretty-trace
 ```
 
 # Demo Explained
@@ -142,28 +144,29 @@ cat stack.txt | rjs perf-<pid>.map | pretty-trace
 - alternatively we can use the [resolve-jit-symbols web app](http://thlorenz.github.io/resolve-jit-symbols/web/) to
   paste the stack and load the map file to show the resolved trace
 
+![rjs-app](img/rjs-app.gif)
+
 # Demo 01 Again
 
 - this time without a terminal ;)
 
 # Debug Symbols
 
-<!-- notes
-TODO: explain how debug symbols are compiled in and show examples from notes.md how to pull them out
--->
+- are included in the binaries and object files at compile time
+- compiler is aware what assembly gets generated from which code and thus can provide that information
 
 # Inspecting Debug Symbols
 
 ## symbols
 
+- spits out symbols found inside which show mapping from hex address to function name and location in file
+
 ```
 symbols <executable>
 ```
 
-- spits out symbols found inside which show mapping from hex address to function name and location in file
-
 ```
-# address             size    symbol
+ # address            size    symbol
 0x000000000002a7d0 (    0x2f) v8::internal::Internals::GetRoot(v8::Isolate*, int) [FUNC, EXT, LENGTH, NameNList, MangledNameNList, Merged, NList, Dwarf]
                 0x000000000002a7d0 (     0xb) v8.h:6219
                 0x000000000002a7db (     0xf) v8.h:6220
@@ -175,23 +178,22 @@ symbols <executable>
 
 ## dsymutil
 
+- extracts symbols from executable and info from object files into a DWARF file inside a `.dSYM`
+
 ```
 dsymutil <executable>
 ```
-
-- extracts symbols from executable and info from object files into a DWARF file inside a `.dSYM`
-
 
 # Inspecting Debug Symbols
 
 ## dwarfdump
 
+- spits out symbols info in DWARF format including return type and parameter info with **DIE**s *Debugging
+Information Entry* for each function
+
 ```
 dwarfdump <executable|dwarf file>
 ```
-
-- spits out symbols info in DWARF format including return type and parameter info with **DIE**s *Debugging
-Information Entry* for each function
 
 ```
 0x00000624:                 TAG_subprogram [6] *
@@ -211,18 +213,17 @@ Information Entry* for each function
                                  AT_type( {0x000075fb} ( int ) )
 
 0x00000641:                     NULL
-
 ```
 
 # Inspecting Debug Symbols
 
 ## atos
 
+- converts numeric addresses to symbols of binary images or processes
+
 ```
 atos -o <executable|static lib|obj file> -printHeader <hexaddress>
 ```
-
-- converts numeric addresses to symbols of binary images or processes
 
 ```
 ➝  atos  -o out/Debug/obj/src/node.uv.o 0x00000624
@@ -231,9 +232,9 @@ node::uv::Initialize(v8::Handle<v8::Object>, v8::Handle<v8::Value>, v8::Handle<v
 
 # JIT
 
-<!-- notes
-TODO: explain JIT here
--->
+- is compilation done during *execution* of a program
+- **v8** generates machine code on the fly and thus cannot provide symbols before hand
+- therefore it needs to provide *symbol* and *mapping* information as it is *JIT*ing the code
 
 # v8 JIT support
 
@@ -269,11 +270,14 @@ void PerfBasicLogger::LogRecordedBuffer(Code* code,
 # Flushing `perf-<pid>.map`
 
 - need to flush once we've seen/run all JS we are interested in
-- three differnent ways to make that happen
+- three different ways to make that happen
 
 # Flushing `perf-<pid>.map`
 
 #### Apply v8 Patch
+
+- most intrusive but easiest to work with once applied
+- **guarantees all** *JIT* info is written **immediately**
 
 ```patch
 diff --git a/deps/v8/src/log.cc b/deps/v8/src/log.cc
@@ -289,15 +293,14 @@ index 0dcf6bb..4d9280c 100644
 
 ```
 
-- most intrusive but easiest to work with once applied
-- **guarantees all** *JIT* info is written **immediately**
-
-
 # Flushing `perf-<pid>.map`
 
 ### flush all
 
 #### Create a `/flush` route
+
+- `curl` to `localhost:PORT/fulsh` to trigger flushing all buffers including `perf-<pid>.map`
+- allows manual flush while process is running
 
 ```js
 var flushall = require('flush-all');
@@ -312,12 +315,14 @@ function onrequest(req, res) {
 }
 ```
 
-- `curl` to `localhost:PORT/fulsh` to trigger flushing all buffers including `perf-<pid>.map`
-- allows manual flush while process is running
-
 # Flushing `perf-<pid>.map`
 
 #### Handle **SIGTERM**
+
+- intercept `SIGTERM` and ensure your server closes and process exits cleanly
+- otherwise process exists without file ever being flushed
+- optionally we may call `flushall` here as well but that is probably not needed
+- disadvantage is that process has to exit to get map file
 
 ```js
 function onSIGTERM() {
@@ -328,14 +333,67 @@ function onSIGTERM() {
 process.on('SIGTERM', onSIGTERM);
 ```
 
-- intercept `SIGTERM` and ensure your server closes and process exits cleanly
-- otherwise process exists without file ever being flushed
-- optionally we may call `flushall` here as well but that is probably not needed
-- disadvantage is that process has to exit to get map file
-
 # Demo 02
 
 - tracking memory leak
+
+# Demo 02 Results
+
+- we were able to show a leak even on C++ end with Instruments
+
+![instuments](img/instruments-watcher-trace.png)
+
+# Demo 02 Results
+
+- the below is the trace we copied which showed two addresses of assembly instructions that we resolved with
+  **resolve-jit-symbols** 
+
+```
+   3 node uv_fs_event_start /Users/thlorenz/dev/js/node/deps/uv/src/unix/kqueue.c:351
+   4 node node::FSEventWrap::Start(v8::FunctionCallbackInfo<v8::Value> const&) /Users/thlorenz/dev/js/node/src/fs_event_wrap.cc:123
+   5 node v8::internal::FunctionCallbackArguments::Call(void (*)(v8::FunctionCallbackInfo<v8::Value> const&)) /Users/thlorenz/dev/js/node/deps/v8/src/arguments.cc:33
+   6 node v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*) /Users/thlorenz/dev/js/node/deps/v8/src/builtins.cc:1127
+   7  0x1d36809060ba
+   8  0x1d3680a0cb1f
+```
+
+# Demo 02 Results
+
+- not much JS in the trace, but enough for us to know where to put a breakpoint in case we want to switch to
+  *node-inspector*
+
+```
+➝  pbpaste | rjs /tmp/perf-99248.map
+   3 node uv_fs_event_start /Users/thlorenz/dev/js/node/deps/uv/src/unix/kqueue.c:351
+   4 node node::FSEventWrap::Start(v8::FunctionCallbackInfo<v8::Value> const&) /Users/thlorenz/dev/js/node/src/fs_event_wrap.cc:123
+   5 node v8::internal::FunctionCallbackArguments::Call(void (*)(v8::FunctionCallbackInfo<v8::Value> const&)) /Users/thlorenz/dev/js/node/deps/v8/src/arguments.cc:33
+   6 node v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*) /Users/thlorenz/dev/js/node/deps/v8/src/builtins.cc:1127
+   7  Stub:CEntryStub
+   8  LazyCompile:~FSWatcher.start fs.js:1069
+```
+
+# Demo 02 Results
+
+- but we were able to do better ...
+
+# Demo 02 Results
+
+- added a breakpoint inside `FSEventWrap::Start` in Xcode and copied the stack on the left
+
+![xcode](img/xcode-breakpoint.png)
+
+# Demo 02 Results
+
+- piped that through **resolve-jit-symbols** and **pretty-trace** to get good insight where our problem came from
+
+![pretty trace](img/pretty-trace.png)
+
+# Demo 02 Results
+
+- even were able to click on the file to lead us right to the culprit
+
+![open file](img/open-file.png)
+
 
 # Flamegraphs
 
@@ -345,3 +403,22 @@ process.on('SIGTERM', onSIGTERM);
 # Demo 03
 
 - flamegraph
+
+# Tools
+
+- [resolve-jit-symbols](https://github.com/thlorenz/resolve-jit-symbols) `cat stack.txt | rjs /tmp/perf-<pid>.map` (make sure to run your app with `--perf-basic-prof`
+- [pretty-trace](https://github.com/thlorenz/pretty-trace) `cat stack.txt | pretty-trace` results in readable stack
+- [flamegraph](https://github.com/thlorenz/flamegraph)  flamegraphs without the *Perl* and and added support for
+  `perf-<pid>.map` files
+
+# Thanks!
+
+<p style="text-align: center;">
+  <img src="http://thlorenz.com/img/avatar.jpg" alt="headshot">
+</p>
+<p style="text-align: center;">
+  <small><a href="http://thlorenz.com">thorsten lorenz</a></small>
+</p>
+<p style="text-align: center;">
+  <small>twitter <a href="http://twitter.com/thlorenz">@thlorenz</a>  |  github  <a href="http://github/thlorenz">@thlorenz</a>  |  irc  thlorenz</small>
+</p>

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-IMAGEROOT='https://raw.githubusercontent.com/thlorenz/talks/gh-pages/memory-profiling/img/'
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+REPO=$(basename $DIR)
+
+IMAGEROOT="https://raw.githubusercontent.com/thlorenz/talks/gh-pages/$REPO/img/"
 
 link_img() {
   for D in *; do

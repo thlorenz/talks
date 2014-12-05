@@ -238,15 +238,24 @@ node::uv::Initialize(v8::Handle<v8::Object>, v8::Handle<v8::Value>, v8::Handle<v
 
 # v8 JIT support
 
+## perf-jit
+
+- map file written to `/tmp/perf-<pid>.jit`
+- contains simple location information
+- does not contain information about parameters
+
+# v8 JIT support
+
+## gdb-jit
+
+- generates more detaild JIT info to be consumed by gdb or lldb debuggers
+- conformed to ELF (Linux) or MachO (OSX) object format standards
+
 <!-- notes
 TODO: 
-- difference between perf-jit (log.cc) and full-jit (gdb-jit.cc) here 
 - lldb master on Linux most times can resolve symbols like this
 - so can gdb
 - both are unstable and slow
-- in the meantime our tools will suffice
-- stack trace is most helpful anyways, don't need extra symbol info like args in most cases
-- include some nifty code samples
 -->
 
 # v8 JIT support
@@ -408,6 +417,8 @@ process.on('SIGTERM', onSIGTERM);
 
 - [resolve-jit-symbols](https://github.com/thlorenz/resolve-jit-symbols) `cat stack.txt | rjs /tmp/perf-<pid>.map` (make sure to run your app with `--perf-basic-prof`
 - [pretty-trace](https://github.com/thlorenz/pretty-trace) `cat stack.txt | pretty-trace` results in readable stack
+- [trance](https://github.com/thlorenz/trance) `cat stack.txt | trance` **TRA**ce enha**NCE**r which resolves locations and
+  optionally inlines relevant code 
 - [flamegraph](https://github.com/thlorenz/flamegraph)  flamegraphs without the *Perl* and and added support for
   `perf-<pid>.map` files
 

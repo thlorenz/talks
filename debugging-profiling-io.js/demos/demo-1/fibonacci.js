@@ -45,6 +45,12 @@ console.error('pid', process.pid);
 
 function onRequest(req, res) {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
+
+  if (req.url === '/start') {
+    profiler.startProfiling('fibonacci');
+    return res.end('Profiler started.\r\n');  
+  }
+
   var n = parseInt(req.url.slice(1));
   if (isNaN(n) || n < 0) return res.end('Please supply a number larger than 0, i.e. curl localhost:8000/12');
 

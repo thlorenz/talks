@@ -120,64 +120,43 @@ Who is `23.235.39.133` and why are we getting packets from there?
 
 ##### Get Trace for the Connection
 
-Function to inspect:
-
-```c
-# /usr/include/sys/socket.h
-int connect(int, const struct sockaddr *, socklen_t);
-```
-
-Dtrace Script:
-
-```awk
-## ./demo-2/tcp_connect.d
-
-syscall::connect:entry / execname == "iojs" / {
-  socks = (struct sockaddr*) copyin(arg1, arg2);
-  hport = (uint_t) socks->sa_data[0];
-  lport = (uint_t) socks->sa_data[1];
-  hport <<= 8;
-  port = hport + lport;
-
-  printf("%s: %d.%d.%d.%d:%d\n", execname, socks->sa_data[2], socks->sa_data[3], socks->sa_data[4], socks->sa_data[5], port);
-
-  ustack(10000);
-}
-```
+Using a slight adaptation of Brendan Gregg's script to [trace the `connect` system
+call](http://dtracebook.com/index.php/Network_Lower_Level_Protocols:soconnect.d#Mac_OS_X) we can trace outgoing
+connections.
 
 Running it:
 
 ```sh
 # Terminal A
-sudo ./tcp_connect.d -c 'iojs --perf-basic-prof app.js' > tcp_connect.txt
+sudo ./soconnect.d -c 'iojs --perf-basic-prof app.js' > soconnect.txt
 
 # Terminal B
 curl localhost:8000
 
 sudo kill <pid>
 
-cat tcp_connect.txt | rjs /tmp/perf-<pid>.map
+cat soconnect.txt | rjs /tmp/perf-<pid>.map
 ```
 
 Resolved stack:
 
 ```txt
-CPU     ID                    FUNCTION:NAME
-  0    337                    connect:entry iojs 94197 62769126: entry:iojs: 23.235.39.133:443
+PID    PROCESS          FAM ADDRESS          PORT   LAT(us) RESULT
+20825  iojs             2   23.235.39.133    443         53 In progress
 
               libsystem_kernel.dylib`__connect+0xa
               iojs`node::TCPWrap::Connect(v8::FunctionCallbackInfo<v8::Value> const&)+0x1cf
               iojs`v8::internal::FunctionCallbackArguments::Call(void (*)(v8::FunctionCallbackInfo<v8::Value> const&))+0x9f
               iojs`v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)+0x21d
-              0x38409fe060bb Stub:CEntryStub
-              0x38409ff65684 LazyCompile:~connect net.js:761
-              0x38409ff6504e LazyCompile:~ net.js:900
-              0x38409fe24bc6 Builtin:FunctionApply
-              0x38409ff64ccc LazyCompile:~asyncCallback dns.js:59
-              0x38409fe1ea55 Builtin:ArgumentsAdaptorTrampoline
-              0x38409ff64b89 LazyCompile:~onlookup dns.js:73
-              0x38409fe1f0c0 Builtin:JSEntryTrampoline
-              0x38409fe1dff1 Stub:JSEntryStub
+              0xd629eb060bb Stub:CEntryStub
+              0xd629ec6b124 LazyCompile:~connect net.js:761
+              0xd629ec6aaee LazyCompile:~ net.js:900
+              0xd629eb24bc6 Builtin:FunctionApply
+              0xd629ec6a76c LazyCompile:~asyncCallback dns.js:59
+              0xd629eb1ea55 Builtin:ArgumentsAdaptorTrampoline
+              0xd629ec6a629 LazyCompile:~onlookup dns.js:73
+              0xd629eb1f0c0 Builtin:JSEntryTrampoline
+              0xd629eb1dff1 Stub:JSEntryStub
               iojs`v8::internal::Invoke(bool, v8::internal::Handle<v8::internal::JSFunction>, v8::internal::Handle<v8::internal::Object>, int, v8::internal::Handle<v8::internal::Object>*)+0x238
               iojs`v8::Function::Call(v8::Handle<v8::Value>, int, v8::Handle<v8::Value>*)+0xc1
               iojs`node::AsyncWrap::MakeCallback(v8::Handle<v8::Function>, int, v8::Handle<v8::Value>*)+0x21d

@@ -1,5 +1,18 @@
 ## Demos
 
+## Install Prerequisites
+
+```
+npm install -g resolve-jit-symbols cpuprofilify traceviewify
+```
+
+As a result you will find the following commands in your path:
+
+- `rjs` resolve-jit-symbols cli
+- `profile_1ms.d` profiling DTrace script
+- `cpuprofilify` converts `dtrace`, `perf` and othero out put to `.cpuprofile` format
+- `traceviewify` converts `.cpuprofile` into trace-viewer format to load it into chrome://tracing
+
 ### Demo 1 v8-profiler
 
 ```sh

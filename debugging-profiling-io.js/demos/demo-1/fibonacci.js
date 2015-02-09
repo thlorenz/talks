@@ -7,7 +7,6 @@ var server = http.createServer();
 var profiler
 if (process.env.V8PROFILE) { 
   profiler = require('v8-profiler');
-  profiler.startProfiling('fibonacci');
 }
 
 var calculateFibonacci = cal_arrayConcat; 

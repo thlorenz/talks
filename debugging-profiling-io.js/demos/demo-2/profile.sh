@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # profile with DTrace script installed via cpuprofilify
-sudo profile_1ms.d -x switchrate=1000hz -p $1                               | \
+sudo profile_1ms.d -p $1                                                    | \
                                                                               \
 # run through cpuprofilify to resolve symbols and convert to cpuprofile
   cpuprofilify                                                              | \

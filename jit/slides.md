@@ -425,7 +425,7 @@ process.on('SIGTERM', onSIGTERM);
 # Thanks!
 
 <p style="text-align: center;">
-  <img src="http://thlorenz.com/img/avatar.jpg" alt="headshot">
+  <img src="https://avatars3.githubusercontent.com/u/192891?v=3&s=460" alt="headshot">
 </p>
 <p style="text-align: center;">
   <small><a href="http://thlorenz.com">thorsten lorenz</a></small>

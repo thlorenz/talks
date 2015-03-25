@@ -1,0 +1,729 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>[jbt](https://github.com/thlorenz/lldb-jbt) | Node Ain&#39;t Just JS</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.5.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    
+    
+    <link rel="next" href="../lldb_demo/lldb_demo_0.html" />
+    
+    
+    <link rel="prev" href="../resolve-jit-symbols/resolve-jit-symbols_0.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-level="14" data-basepath=".." data-revision="1427319776346">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="node_ain_t_just_js/node_ain_t_just_js_0.html">
+            
+                
+                    <a href="../node_ain_t_just_js/node_ain_t_just_js_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Node Ain&#39;t Just JS
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="io_js_stack/io_js_stack_0.html">
+            
+                
+                    <a href="../io_js_stack/io_js_stack_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         io.js stack
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="io_js_languages/io_js_languages_0.html">
+            
+                
+                    <a href="../io_js_languages/io_js_languages_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         io.js languages
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="io_js_deps_languages/io_js_deps_languages_0.html">
+            
+                
+                    <a href="../io_js_deps_languages/io_js_deps_languages_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         io.js deps languages
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" data-path="debug_symbols/debug_symbols_0.html">
+            
+                
+                    <a href="../debug_symbols/debug_symbols_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         debug symbols
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="inspecting_debug_symbols/inspecting_debug_symbols_0.html">
+            
+                
+                    <a href="../inspecting_debug_symbols/inspecting_debug_symbols_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                         inspecting debug symbols
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7" data-path="jit/jit_0.html">
+            
+                
+                    <a href="../jit/jit_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                         JIT
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8" data-path="v8_features/v8_features_0.html">
+            
+                
+                    <a href="../v8_features/v8_features_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                         v8 features
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9" data-path="v8_jit_support_perf-jit/v8_jit_support_perf-jit_0.html">
+            
+                
+                    <a href="../v8_jit_support_perf-jit/v8_jit_support_perf-jit_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                         v8 JIT support perf-jit
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10" data-path="v8_jit_support/v8_jit_support_0.html">
+            
+                
+                    <a href="../v8_jit_support/v8_jit_support_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                         v8 JIT support
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="10.1" data-path="v8_jit_support/v8_jit_support_1.html">
+            
+                
+                    <a href="../v8_jit_support/v8_jit_support_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                         v8 JIT support 1
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11" data-path="flushing__perf-_pid__map_/flushing__perf-_pid__map__0.html">
+            
+                
+                    <a href="../flushing__perf-_pid__map_/flushing__perf-_pid__map__0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                         flushing `perf-&lt;pid&gt;.map`
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12" data-path="v8_jit_support_gdb-jit/v8_jit_support_gdb-jit_0.html">
+            
+                
+                    <a href="../v8_jit_support_gdb-jit/v8_jit_support_gdb-jit_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                         v8 JIT support gdb-jit
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="13" data-path="resolve-jit-symbols/resolve-jit-symbols_0.html">
+            
+                
+                    <a href="../resolve-jit-symbols/resolve-jit-symbols_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                         resolve-jit-symbols
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="14" data-path="_jbt__https___github_com_thlorenz_lldb-jbt_/_jbt__https___github_com_thlorenz_lldb-jbt__0.html">
+            
+                
+                    <a href="../_jbt__https___github_com_thlorenz_lldb-jbt_/_jbt__https___github_com_thlorenz_lldb-jbt__0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                         [jbt](https://github.com/thlorenz/lldb-jbt)
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15" data-path="lldb_demo/lldb_demo_0.html">
+            
+                
+                    <a href="../lldb_demo/lldb_demo_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                         lldb demo
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="16" data-path="js_inspection_tools/js_inspection_tools_0.html">
+            
+                
+                    <a href="../js_inspection_tools/js_inspection_tools_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>16.</b>
+                        
+                         js inspection tools
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="17" data-path="linux_inspection_tools/linux_inspection_tools_0.html">
+            
+                
+                    <a href="../linux_inspection_tools/linux_inspection_tools_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>17.</b>
+                        
+                         linux inspection tools
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="18" data-path="bsd_osx_illumos_inspection_tools/bsd_osx_illumos_inspection_tools_0.html">
+            
+                
+                    <a href="../bsd_osx_illumos_inspection_tools/bsd_osx_illumos_inspection_tools_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>18.</b>
+                        
+                         bsd/osx/illumos inspection tools
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="19" data-path="tracing_the_entire_stack/tracing_the_entire_stack_0.html">
+            
+                
+                    <a href="../tracing_the_entire_stack/tracing_the_entire_stack_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.</b>
+                        
+                         tracing the entire stack
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="19.1" data-path="tracing_the_entire_stack/tracing_the_entire_stack_1.html">
+            
+                
+                    <a href="../tracing_the_entire_stack/tracing_the_entire_stack_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.1.</b>
+                        
+                         tracing the entire stack 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="19.2" data-path="tracing_the_entire_stack/tracing_the_entire_stack_2.html">
+            
+                
+                    <a href="../tracing_the_entire_stack/tracing_the_entire_stack_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>19.2.</b>
+                        
+                         tracing the entire stack 2
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="20" data-path="tracing_demo/tracing_demo_0.html">
+            
+                
+                    <a href="../tracing_demo/tracing_demo_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>20.</b>
+                        
+                         tracing demo
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="21" data-path="playalong_prep/playalong_prep_0.html">
+            
+                
+                    <a href="../playalong_prep/playalong_prep_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.</b>
+                        
+                         playalong prep
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="21.1" data-path="playalong_prep/playalong_prep_1.html">
+            
+                
+                    <a href="../playalong_prep/playalong_prep_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>21.1.</b>
+                        
+                         playalong prep 1
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="22" data-path="lldb-playalong/lldb-playalong_0.html">
+            
+                
+                    <a href="../lldb-playalong/lldb-playalong_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                         lldb-playalong
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="23" data-path="tracing-playalong_prep/tracing-playalong_prep_0.html">
+            
+                
+                    <a href="../tracing-playalong_prep/tracing-playalong_prep_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.</b>
+                        
+                         tracing-playalong prep
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="23.1" data-path="tracing-playalong_prep/tracing-playalong_prep_1.html">
+            
+                
+                    <a href="../tracing-playalong_prep/tracing-playalong_prep_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>23.1.</b>
+                        
+                         tracing-playalong prep 1
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="24" data-path="tracing-playalong/tracing-playalong_0.html">
+            
+                
+                    <a href="../tracing-playalong/tracing-playalong_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.</b>
+                        
+                         tracing-playalong
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="24.1" data-path="tracing-playalong/tracing-playalong_1.html">
+            
+                
+                    <a href="../tracing-playalong/tracing-playalong_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>24.1.</b>
+                        
+                         tracing-playalong 1
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="25" data-path="thanks!/thanks!_0.html">
+            
+                
+                    <a href="../thanks!/thanks!_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>25.</b>
+                        
+                         Thanks!
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Node Ain&#39;t Just JS</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_3">
+                    
+                        <h1 id="jbthttpsgithubcomthlorenzlldb-jbt"><a href="https://github.com/thlorenz/lldb-jbt" target="_blank">jbt</a></h1>
+<ul>
+<li>lldb plugin that adds JavaScript symbols to lldb stack traces</li>
+</ul>
+<p><img src="https://github.com/thlorenz/lldb-jbt/raw/master/assets/sample.png" alt="img"></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../resolve-jit-symbols/resolve-jit-symbols_0.html" class="navigation navigation-prev " aria-label="Previous page: resolve-jit-symbols"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../lldb_demo/lldb_demo_0.html" class="navigation navigation-next " aria-label="Next page: lldb demo"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

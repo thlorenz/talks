@@ -127,6 +127,20 @@ v8           | v3.14.5.9    | 4.5.103.35
 - Chrome DevTools and `chrome://tracing` improvements
 - N|Solid features and research
 
+# What about Debugging
+
+### lldb-jbt
+
+![img/lldb-jbt.png](img/lldb-jbt.png)
+
+# What about Debugging
+
+### lldb-node
+
+_Even more powerful_
+
+![imb/llnode.png](img/llnode.png)
+
 # Userland Modules
 
 - [node-inspector/v8-profiler](https://github.com/node-inspector/v8-profiler)
@@ -135,6 +149,7 @@ v8           | v3.14.5.9    | 4.5.103.35
 - [thlorenz/traceviewify](https://github.com/thlorenz/traceviewify)
 - [thlorenz/resolve-jit-symbols](https://github.com/thlorenz/resolve-jit-symbols)
 - [thlorenz/lldb-jbt](https://github.com/thlorenz/lldb-jbt)
+- [indutny/llnode](https://github.com/indutny/llnode)
 
 # Resources Links
 

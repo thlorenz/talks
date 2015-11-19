@@ -1,7 +1,7 @@
 # Debugging/Profiling Node.js
 
 <p style="text-align: center;">
-  <img src="https://github.com/thlorenz/talks/raw/gh-pages/_img/avatar-alps.jpg" alt="headshot" width="400px">
+  <img src="https://github.com/thlorenz/talks/raw/gh-pages/debugging-profiling-nodejs/img/avatar-0.jpg" alt="headshot" width="400px">
 </p>
 <p style="text-align: center;">
   <small><a href="http://thlorenz.com">Thorsten Lorenz</a></small>
@@ -182,7 +182,7 @@ _[https://downloads.nodesource.com/](https://downloads.nodesource.com/)_
 # Thanks!
 
 <p style="text-align: center;">
-  <img src="https://github.com/thlorenz/talks/raw/gh-pages/_img/avatar-alps.jpg" alt="headshot" width="400px">
+  <img src="https://github.com/thlorenz/talks/raw/gh-pages/debugging-profiling-nodejs/img/avatar.jpg" alt="headshot" width="400px">
 </p>
 <p style="text-align: center;">
   <small><a href="http://thlorenz.com">Thorsten Lorenz</a></small>

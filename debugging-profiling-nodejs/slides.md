@@ -135,11 +135,21 @@ v8           | v3.14.5.9    | 4.5.103.35
 
 # What about Debugging
 
-### lldb-node
+### llnode
 
 _Even more powerful_
 
 ![imb/llnode.png](img/llnode.png)
+
+# llnode Demo
+
+![demo](img/demo.jpg)
+
+<!-- notes
+- `node demo-3/`
+- `node active-handles/examples/mixed.js`
+- `node active-requests/examples/multi-fs.js`
+-->
 
 # Userland Modules
 

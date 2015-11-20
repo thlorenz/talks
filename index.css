@@ -1,0 +1,15 @@
+article {
+  float: left;
+  width: 400px;
+  height: 330px;
+  background: antiquewhite;
+  border: solid silver 1px;
+  border-radius: 3px;
+  margin: 2px;
+  padding-left: 10px;
+}
+
+article img {
+  width: 400px;
+  height: 225;
+}

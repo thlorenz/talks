@@ -1,6 +1,6 @@
 'use strict';
 
-var PORT = 8000;
+var PORT = process.env.PORT || 8000;
 var http = require('http');
 var server = http.createServer();
 

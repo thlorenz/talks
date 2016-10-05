@@ -1,0 +1,1425 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>Memory Leak Causes 1 | Memory Profiling For Mere Mortals</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.5.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    
+    
+    <link rel="next" href="../memory_leak_causes/memory_leak_causes_2.html" />
+    
+    
+    <link rel="prev" href="../memory_leak_causes/memory_leak_causes_0.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-level="6.1" data-basepath=".." data-revision="1475681502597">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="memory_profiling_for_mere_mortals_/memory_profiling_for_mere_mortals__0.html">
+            
+                
+                    <a href="../memory_profiling_for_mere_mortals_/memory_profiling_for_mere_mortals__0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Memory Profiling For Mere Mortals 
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="1.1" data-path="memory_profiling_for_mere_mortals_/memory_profiling_for_mere_mortals__1.html">
+            
+                
+                    <a href="../memory_profiling_for_mere_mortals_/memory_profiling_for_mere_mortals__1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         Memory Profiling For Mere Mortals  1
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="toy_story/toy_story_0.html">
+            
+                
+                    <a href="../toy_story/toy_story_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         Toy Story
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="toy_story/toy_story_1.html">
+            
+                
+                    <a href="../toy_story/toy_story_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         Toy Story 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.2" data-path="toy_story/toy_story_2.html">
+            
+                
+                    <a href="../toy_story/toy_story_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         Toy Story 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="toy_story/toy_story_3.html">
+            
+                
+                    <a href="../toy_story/toy_story_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         Toy Story 3
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.4" data-path="toy_story/toy_story_4.html">
+            
+                
+                    <a href="../toy_story/toy_story_4.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                         Toy Story 4
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.5" data-path="toy_story/toy_story_5.html">
+            
+                
+                    <a href="../toy_story/toy_story_5.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                         Toy Story 5
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.6" data-path="toy_story/toy_story_6.html">
+            
+                
+                    <a href="../toy_story/toy_story_6.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                         Toy Story 6
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.7" data-path="toy_story/toy_story_7.html">
+            
+                
+                    <a href="../toy_story/toy_story_7.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                         Toy Story 7
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.8" data-path="toy_story/toy_story_8.html">
+            
+                
+                    <a href="../toy_story/toy_story_8.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                         Toy Story 8
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.9" data-path="toy_story/toy_story_9.html">
+            
+                
+                    <a href="../toy_story/toy_story_9.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                         Toy Story 9
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.10" data-path="toy_story/toy_story_10.html">
+            
+                
+                    <a href="../toy_story/toy_story_10.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                         Toy Story 10
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.11" data-path="toy_story/toy_story_11.html">
+            
+                
+                    <a href="../toy_story/toy_story_11.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.11.</b>
+                        
+                         Toy Story 11
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.12" data-path="toy_story/toy_story_12.html">
+            
+                
+                    <a href="../toy_story/toy_story_12.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.12.</b>
+                        
+                         Toy Story 12
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.13" data-path="toy_story/toy_story_13.html">
+            
+                
+                    <a href="../toy_story/toy_story_13.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.13.</b>
+                        
+                         Toy Story 13
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.14" data-path="toy_story/toy_story_14.html">
+            
+                
+                    <a href="../toy_story/toy_story_14.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.14.</b>
+                        
+                         Toy Story 14
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.15" data-path="toy_story/toy_story_15.html">
+            
+                
+                    <a href="../toy_story/toy_story_15.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.15.</b>
+                        
+                         Toy Story 15
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.16" data-path="toy_story/toy_story_16.html">
+            
+                
+                    <a href="../toy_story/toy_story_16.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.16.</b>
+                        
+                         Toy Story 16
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.17" data-path="toy_story/toy_story_17.html">
+            
+                
+                    <a href="../toy_story/toy_story_17.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.17.</b>
+                        
+                         Toy Story 17
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="huh_/huh__0.html">
+            
+                
+                    <a href="../huh_/huh__0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         HUH?
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="server/server_0.html">
+            
+                
+                    <a href="../server/server_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         Server
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="4.1" data-path="server/server_1.html">
+            
+                
+                    <a href="../server/server_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                         Server 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.2" data-path="server/server_2.html">
+            
+                
+                    <a href="../server/server_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                         Server 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.3" data-path="server/server_3.html">
+            
+                
+                    <a href="../server/server_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                         Server 3
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.4" data-path="server/server_4.html">
+            
+                
+                    <a href="../server/server_4.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                         Server 4
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.5" data-path="server/server_5.html">
+            
+                
+                    <a href="../server/server_5.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                         Server 5
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" data-path="memory_leak/memory_leak_0.html">
+            
+                
+                    <a href="../memory_leak/memory_leak_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         Memory Leak
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="5.1" data-path="memory_leak/memory_leak_1.html">
+            
+                
+                    <a href="../memory_leak/memory_leak_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                         Memory Leak 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.2" data-path="memory_leak/memory_leak_2.html">
+            
+                
+                    <a href="../memory_leak/memory_leak_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                         Memory Leak 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.3" data-path="memory_leak/memory_leak_3.html">
+            
+                
+                    <a href="../memory_leak/memory_leak_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                         Memory Leak 3
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.4" data-path="memory_leak/memory_leak_4.html">
+            
+                
+                    <a href="../memory_leak/memory_leak_4.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                         Memory Leak 4
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="memory_leak_causes/memory_leak_causes_0.html">
+            
+                
+                    <a href="../memory_leak_causes/memory_leak_causes_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                         Memory Leak Causes
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter active" data-level="6.1" data-path="memory_leak_causes/memory_leak_causes_1.html">
+            
+                
+                    <a href="../memory_leak_causes/memory_leak_causes_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                         Memory Leak Causes 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.2" data-path="memory_leak_causes/memory_leak_causes_2.html">
+            
+                
+                    <a href="../memory_leak_causes/memory_leak_causes_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                         Memory Leak Causes 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.3" data-path="memory_leak_causes/memory_leak_causes_3.html">
+            
+                
+                    <a href="../memory_leak_causes/memory_leak_causes_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                         Memory Leak Causes 3
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7" data-path="garbage_collector/garbage_collector_0.html">
+            
+                
+                    <a href="../garbage_collector/garbage_collector_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                         Garbage Collector
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="7.1" data-path="garbage_collector/garbage_collector_1.html">
+            
+                
+                    <a href="../garbage_collector/garbage_collector_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                         Garbage Collector 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.2" data-path="garbage_collector/garbage_collector_2.html">
+            
+                
+                    <a href="../garbage_collector/garbage_collector_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                         Garbage Collector 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.3" data-path="garbage_collector/garbage_collector_3.html">
+            
+                
+                    <a href="../garbage_collector/garbage_collector_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                         Garbage Collector 3
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.4" data-path="garbage_collector/garbage_collector_4.html">
+            
+                
+                    <a href="../garbage_collector/garbage_collector_4.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                         Garbage Collector 4
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.5" data-path="garbage_collector/garbage_collector_5.html">
+            
+                
+                    <a href="../garbage_collector/garbage_collector_5.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                         Garbage Collector 5
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.6" data-path="garbage_collector/garbage_collector_6.html">
+            
+                
+                    <a href="../garbage_collector/garbage_collector_6.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                         Garbage Collector 6
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8" data-path="trouble_shooting_leaks/trouble_shooting_leaks_0.html">
+            
+                
+                    <a href="../trouble_shooting_leaks/trouble_shooting_leaks_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                         Trouble Shooting Leaks
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="8.1" data-path="trouble_shooting_leaks/trouble_shooting_leaks_1.html">
+            
+                
+                    <a href="../trouble_shooting_leaks/trouble_shooting_leaks_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                         Trouble Shooting Leaks 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.2" data-path="trouble_shooting_leaks/trouble_shooting_leaks_2.html">
+            
+                
+                    <a href="../trouble_shooting_leaks/trouble_shooting_leaks_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                         Trouble Shooting Leaks 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.3" data-path="trouble_shooting_leaks/trouble_shooting_leaks_3.html">
+            
+                
+                    <a href="../trouble_shooting_leaks/trouble_shooting_leaks_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                         Trouble Shooting Leaks 3
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.4" data-path="trouble_shooting_leaks/trouble_shooting_leaks_4.html">
+            
+                
+                    <a href="../trouble_shooting_leaks/trouble_shooting_leaks_4.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                         Trouble Shooting Leaks 4
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.5" data-path="trouble_shooting_leaks/trouble_shooting_leaks_5.html">
+            
+                
+                    <a href="../trouble_shooting_leaks/trouble_shooting_leaks_5.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                         Trouble Shooting Leaks 5
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.6" data-path="trouble_shooting_leaks/trouble_shooting_leaks_6.html">
+            
+                
+                    <a href="../trouble_shooting_leaks/trouble_shooting_leaks_6.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                         Trouble Shooting Leaks 6
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.7" data-path="trouble_shooting_leaks/trouble_shooting_leaks_7.html">
+            
+                
+                    <a href="../trouble_shooting_leaks/trouble_shooting_leaks_7.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                         Trouble Shooting Leaks 7
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9" data-path="considerations/considerations_0.html">
+            
+                
+                    <a href="../considerations/considerations_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                         Considerations
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10" data-path="name_your_functions/name_your_functions_0.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                         Name Your Functions
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="10.1" data-path="name_your_functions/name_your_functions_1.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                         Name Your Functions 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.2" data-path="name_your_functions/name_your_functions_2.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                         Name Your Functions 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.3" data-path="name_your_functions/name_your_functions_3.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.3.</b>
+                        
+                         Name Your Functions 3
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.4" data-path="name_your_functions/name_your_functions_4.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_4.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.4.</b>
+                        
+                         Name Your Functions 4
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.5" data-path="name_your_functions/name_your_functions_5.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_5.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.5.</b>
+                        
+                         Name Your Functions 5
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.6" data-path="name_your_functions/name_your_functions_6.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_6.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.6.</b>
+                        
+                         Name Your Functions 6
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.7" data-path="name_your_functions/name_your_functions_7.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_7.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.7.</b>
+                        
+                         Name Your Functions 7
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.8" data-path="name_your_functions/name_your_functions_8.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_8.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.8.</b>
+                        
+                         Name Your Functions 8
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.9" data-path="name_your_functions/name_your_functions_9.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_9.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.9.</b>
+                        
+                         Name Your Functions 9
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.10" data-path="name_your_functions/name_your_functions_10.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_10.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.10.</b>
+                        
+                         Name Your Functions 10
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.11" data-path="name_your_functions/name_your_functions_11.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_11.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.11.</b>
+                        
+                         Name Your Functions 11
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.12" data-path="name_your_functions/name_your_functions_12.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_12.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.12.</b>
+                        
+                         Name Your Functions 12
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.13" data-path="name_your_functions/name_your_functions_13.html">
+            
+                
+                    <a href="../name_your_functions/name_your_functions_13.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.13.</b>
+                        
+                         Name Your Functions 13
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11" data-path="sampling_memory_allocations/sampling_memory_allocations_0.html">
+            
+                
+                    <a href="../sampling_memory_allocations/sampling_memory_allocations_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                         Sampling Memory Allocations
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="11.1" data-path="sampling_memory_allocations/sampling_memory_allocations_1.html">
+            
+                
+                    <a href="../sampling_memory_allocations/sampling_memory_allocations_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                         Sampling Memory Allocations 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.2" data-path="sampling_memory_allocations/sampling_memory_allocations_2.html">
+            
+                
+                    <a href="../sampling_memory_allocations/sampling_memory_allocations_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.2.</b>
+                        
+                         Sampling Memory Allocations 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.3" data-path="sampling_memory_allocations/sampling_memory_allocations_3.html">
+            
+                
+                    <a href="../sampling_memory_allocations/sampling_memory_allocations_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.3.</b>
+                        
+                         Sampling Memory Allocations 3
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12" data-path="demo_time/demo_time_0.html">
+            
+                
+                    <a href="../demo_time/demo_time_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                         Demo Time
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="13" data-path="resources/resources_0.html">
+            
+                
+                    <a href="../resources/resources_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                         Resources
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="14" data-path="thanks!/thanks!_0.html">
+            
+                
+                    <a href="../thanks!/thanks!_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                         Thanks!
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Memory Profiling For Mere Mortals</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_2">
+                    
+                        <h1 id="memory-leak-causes">Memory Leak Causes</h1>
+<ol>
+<li>registered event handlers</li>
+<li>function closures </li>
+</ol>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../memory_leak_causes/memory_leak_causes_0.html" class="navigation navigation-prev " aria-label="Previous page: Memory Leak Causes"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../memory_leak_causes/memory_leak_causes_2.html" class="navigation navigation-next " aria-label="Next page: Memory Leak Causes 2"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

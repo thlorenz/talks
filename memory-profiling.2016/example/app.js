@@ -7,6 +7,7 @@ const path = require('path')
 const PORT      = process.env.PORT || 5000
 const indexFile = path.join(__dirname, 'index.html')
 const indexSrc  = fs.readFileSync(indexFile)
+const watchers = []
 
 let indexInfo = { content : indexSrc }
 
@@ -33,6 +34,7 @@ function watchIndex(opts) {
     watcher.close()
     if (event === opts.event) updateIndexInfo()
   })
+  watchers.push(watcher)
 }
 
 const server = http.createServer()
@@ -69,6 +71,7 @@ console.log('pid', process.pid)
 
 function collectGarbage(res) {
   if (typeof gc === 'function') {
+    /* global gc */
     gc()
     console.error('Collected garbage')
   } else {

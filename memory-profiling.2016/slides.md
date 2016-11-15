@@ -104,14 +104,14 @@ const fs   = require('fs')
 const path = require('path')
 const templateEngine = require('any-template-engine')
 
-const header = fs.readFileSync(path.join(__dirname, my-header.html), utf8)
+const header = fs.readFileSync(path.join(__dirname, 'my-header.html'), 'utf8')
 
 // [ ...]
 
 function onrequest(req, res) {
   const context = getContext(req);
 
-  fs.readFile(path.join(__dirname, index.html), utf8, function onreadIndex(err, src) {
+  fs.readFile(path.join(__dirname, 'index.html'), 'utf8', function onreadIndex(err, src) {
     if (err) return console.error(err)
     const html = header + templateEngine(src, context)
     serve(html)
@@ -130,7 +130,7 @@ const fs   = require('fs')
 const path = require('path')
 const templateEngine = require('any-template-engine')
 
-const header = fs.readFileSync(path.join(__dirname, my-header.html), utf8)
+const header = fs.readFileSync(path.join(__dirname, 'my-header.html'), 'utf8')
 ```
 
 # Server
@@ -143,7 +143,7 @@ const fs   = require('fs')
 const path = require('path')
 const templateEngine = require('any-template-engine')
 
-const header = fs.readFileSync(path.join(__dirname, my-header.html), utf8)
+const header = fs.readFileSync(path.join(__dirname, 'my-header.html'), 'utf8')
 ```
 
 - `require`d modules and static header are **created once** and stay in memory for the life time of the server
@@ -160,7 +160,7 @@ const header = fs.readFileSync(path.join(__dirname, my-header.html), utf8)
 function onrequest(req, res) {
   const context = getContext(req);
 
-  fs.readFile(path.join(__dirname, index.html), utf8, function onreadIndex(err, src) {
+  fs.readFile(path.join(__dirname, 'index.html'), 'utf8', function onreadIndex(err, src) {
     if (err) return console.error(err)
     const html = header + templateEngine(src, context)
     serve(html)
@@ -176,7 +176,7 @@ function onrequest(req, res) {
 function onrequest(req, res) {
   const context = getContext(req);
 
-  fs.readFile(path.join(__dirname, index.html), utf8, function onreadIndex(err, src) {
+  fs.readFile(path.join(__dirname, 'index.html'), 'utf8', function onreadIndex(err, src) {
     if (err) return console.error(err)
     const html = header + templateEngine(src, context)
     serve(html)
@@ -194,7 +194,7 @@ function onrequest(req, res) {
 function onrequest(req, res) {
   const context = getContext(req);
 
-  fs.readFile(path.join(__dirname, index.html), utf8, function onreadIndex(err, src) {
+  fs.readFile(path.join(__dirname, 'index.html'), 'utf8', function onreadIndex(err, src) {
     if (err) return console.error(err)
     const html = header + templateEngine(src, context)
     serve(html)
@@ -347,17 +347,6 @@ function onrequest(req, res) {
 
 # Trouble Shooting Leaks
 
-## Demo Time
-
-![demo](img/demo.jpg)
-
-<!-- notes
-- DevTools using heapdump module
--->
-
-
-# Trouble Shooting Leaks
-
 ## IMPORTANT!!!
 
 ![important](img/devtools-important.png)
@@ -369,7 +358,7 @@ function onrequest(req, res) {
 ![demo](img/demo.jpg)
 
 <!-- notes
-- DevTools 
+- DevTools using heapdump module or `inspect`
   - show Object Allocation Tracker
   - show closures
   - show retainer view
@@ -485,6 +474,54 @@ fs.readFile(file, (err, src) => {
 ```
 
 ![no-4](img/no-4.jpg)
+
+# Recording Allocation Profile
+
+Relies on `--inspect` option which arrrived with node v6
+
+```
+> node -v
+v4.6.2
+
+> node --inspect
+node: bad option: --inspect
+```
+
+# Recording Allocation Profile
+
+Relies on `--inspect` option which arrrived with node v6
+
+```
+> node -v
+v6.9.1
+
+> node --inspect
+Debugger listening on port 9229.
+Warning: This is an experimental feature and could change at any time.
+To start debugging, open the following URL in Chrome:
+    chrome-devtools://devtools/remote/serve_file/@60cd6e859b9f557d2312f5bf532f6aec5f284980/inspector.html?experiments=true&v8only=true&ws=localhost:9229/cadf0d15-a3bd-4802-814d-bfe5e6e51aeb
+```
+
+# Recording Allocation Profile
+
+![img](img/alloc-profile-select.png)
+
+# Recording Allocation Profile
+
+![img](img/alloc-profile-graph.png)
+
+
+# Recording Allocation Profile
+
+## Demo Time
+
+![demo](img/demo.jpg)
+
+<!-- notes
+- start same app
+- start recording allocation profile
+- curl a few times and show result after stopping the recording
+-->
 
 # Sampling Memory Allocations
 

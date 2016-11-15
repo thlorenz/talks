@@ -4,12 +4,10 @@
   "description": "Demonstrates a memory leak and how to analyze it with help of the heapdump module and Chrome DevTools.",
   "scripts": {
     "start": "node --expose-gc --always-compact ./app",
+    "inspect": "node --inspect --expose-gc ./app",
     "curl": "2>/dev/null 1>&2 curl localhost:5000 && curl localhost:5000/gc && curl localhost:5000/gc"
   },
   "devDependencies": {
-    "heapdump": "~0.3.0"
-  },
-  "dependencies": {
     "heapdump": "~0.3.7"
   }
 }

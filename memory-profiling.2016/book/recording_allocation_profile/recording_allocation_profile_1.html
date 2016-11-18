@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <title>Sampling Memory Allocations 1 | Memory Profiling For Mere Mortals</title>
+        <title>Recording Allocation Profile 1 | Memory Profiling For Mere Mortals</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.5.0">
@@ -19,10 +19,10 @@
         
     
     
-    <link rel="next" href="../sampling_memory_allocations/sampling_memory_allocations_2.html" />
+    <link rel="next" href="../recording_allocation_profile/recording_allocation_profile_2.html" />
     
     
-    <link rel="prev" href="../sampling_memory_allocations/sampling_memory_allocations_0.html" />
+    <link rel="prev" href="../recording_allocation_profile/recording_allocation_profile_0.html" />
     
 
         
@@ -34,7 +34,7 @@
 
 
         
-    <div class="book" data-level="12.1" data-basepath=".." data-revision="1479490908429">
+    <div class="book" data-level="11.1" data-basepath=".." data-revision="1479490908429">
     
 
 <div class="book-summary">
@@ -1171,7 +1171,7 @@
                 
     
         
-        <li class="chapter " data-level="11.1" data-path="recording_allocation_profile/recording_allocation_profile_1.html">
+        <li class="chapter active" data-level="11.1" data-path="recording_allocation_profile/recording_allocation_profile_1.html">
             
                 
                     <a href="../recording_allocation_profile/recording_allocation_profile_1.html">
@@ -1257,7 +1257,7 @@
                 
     
         
-        <li class="chapter active" data-level="12.1" data-path="sampling_memory_allocations/sampling_memory_allocations_1.html">
+        <li class="chapter " data-level="12.1" data-path="sampling_memory_allocations/sampling_memory_allocations_1.html">
             
                 
                     <a href="../sampling_memory_allocations/sampling_memory_allocations_1.html">
@@ -1446,22 +1446,19 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_44">
+                    <section class="normal" id="section-gitbook_38">
                     
-                        <h1 id="sampling-memory-allocations">Sampling Memory Allocations</h1>
-<ul>
-<li>we can make that API available via a <a href="https://github.com/thlorenz/sample-heap-allocations" target="_blank">sample-heap-allocations addon</a> so you can do</li>
-</ul>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> sh = <span class="hljs-built_in">require</span>(<span class="hljs-string">'sample-heap-allocations'</span>)
+                        <h1 id="recording-allocation-profile">Recording Allocation Profile</h1>
+<p>Relies on <code>--inspect</code> option which arrrived with node v6</p>
+<pre><code>&gt; node -v
+v6.9.1
 
-sh.startSampling(<span class="hljs-number">32</span>, <span class="hljs-number">10</span>)
-
-<span class="hljs-comment">// allocate some things like Arrays</span>
-
-<span class="hljs-keyword">const</span> allocs = sh.collectAllocations()
-<span class="hljs-built_in">console</span>.log(allocs)
+&gt; node --inspect
+Debugger listening on port 9229.
+Warning: This is an experimental feature and could change at any time.
+To start debugging, open the following URL in Chrome:
+    chrome-devtools://devtools/remote/serve_file/@60cd6e859b9f557d2312f5bf532f6aec5f284980/inspector.html?experiments=true&amp;v8only=true&amp;ws=localhost:9229/cadf0d15-a3bd-4802-814d-bfe5e6e51aeb
 </code></pre>
-
                     
                     </section>
                 
@@ -1471,10 +1468,10 @@ sh.startSampling(<span class="hljs-number">32</span>, <span class="hljs-number">
         </div>
 
         
-        <a href="../sampling_memory_allocations/sampling_memory_allocations_0.html" class="navigation navigation-prev " aria-label="Previous page: Sampling Memory Allocations"><i class="fa fa-angle-left"></i></a>
+        <a href="../recording_allocation_profile/recording_allocation_profile_0.html" class="navigation navigation-prev " aria-label="Previous page: Recording Allocation Profile"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../sampling_memory_allocations/sampling_memory_allocations_2.html" class="navigation navigation-next " aria-label="Next page: Sampling Memory Allocations 2"><i class="fa fa-angle-right"></i></a>
+        <a href="../recording_allocation_profile/recording_allocation_profile_2.html" class="navigation navigation-next " aria-label="Next page: Recording Allocation Profile 2"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

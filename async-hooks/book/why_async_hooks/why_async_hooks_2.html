@@ -1,0 +1,1232 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>Why Async Hooks 2 | Async Hooks</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.5.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    
+    
+    <link rel="next" href="../why_async_hooks/why_async_hooks_3.html" />
+    
+    
+    <link rel="prev" href="../why_async_hooks/why_async_hooks_1.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-level="2.2" data-basepath=".." data-revision="1509057678416">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="async_hooks/async_hooks_0.html">
+            
+                
+                    <a href="../async_hooks/async_hooks_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Async Hooks
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="why_async_hooks/why_async_hooks_0.html">
+            
+                
+                    <a href="../why_async_hooks/why_async_hooks_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         Why Async Hooks
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="why_async_hooks/why_async_hooks_1.html">
+            
+                
+                    <a href="../why_async_hooks/why_async_hooks_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         Why Async Hooks 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="2.2" data-path="why_async_hooks/why_async_hooks_2.html">
+            
+                
+                    <a href="../why_async_hooks/why_async_hooks_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         Why Async Hooks 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="why_async_hooks/why_async_hooks_3.html">
+            
+                
+                    <a href="../why_async_hooks/why_async_hooks_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         Why Async Hooks 3
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="async_hooks_history/async_hooks_history_0.html">
+            
+                
+                    <a href="../async_hooks_history/async_hooks_history_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         Async Hooks History
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="async_hooks_history/async_hooks_history_1.html">
+            
+                
+                    <a href="../async_hooks_history/async_hooks_history_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         Async Hooks History 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.2" data-path="async_hooks_history/async_hooks_history_2.html">
+            
+                
+                    <a href="../async_hooks_history/async_hooks_history_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         Async Hooks History 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.3" data-path="async_hooks_history/async_hooks_history_3.html">
+            
+                
+                    <a href="../async_hooks_history/async_hooks_history_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         Async Hooks History 3
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.4" data-path="async_hooks_history/async_hooks_history_4.html">
+            
+                
+                    <a href="../async_hooks_history/async_hooks_history_4.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                         Async Hooks History 4
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.5" data-path="async_hooks_history/async_hooks_history_5.html">
+            
+                
+                    <a href="../async_hooks_history/async_hooks_history_5.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                         Async Hooks History 5
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="what_are_async_hooks/what_are_async_hooks_0.html">
+            
+                
+                    <a href="../what_are_async_hooks/what_are_async_hooks_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         What Are Async Hooks
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" data-path="inheritance_chain/inheritance_chain_0.html">
+            
+                
+                    <a href="../inheritance_chain/inheritance_chain_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         Inheritance Chain
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="5.1" data-path="inheritance_chain/inheritance_chain_1.html">
+            
+                
+                    <a href="../inheritance_chain/inheritance_chain_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                         Inheritance Chain 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.2" data-path="inheritance_chain/inheritance_chain_2.html">
+            
+                
+                    <a href="../inheritance_chain/inheritance_chain_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                         Inheritance Chain 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.3" data-path="inheritance_chain/inheritance_chain_3.html">
+            
+                
+                    <a href="../inheritance_chain/inheritance_chain_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                         Inheritance Chain 3
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="tons_of_providers/tons_of_providers_0.html">
+            
+                
+                    <a href="../tons_of_providers/tons_of_providers_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                         Tons of Providers
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7" data-path="async_hooks_api/async_hooks_api_0.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                         Async Hooks API
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="7.1" data-path="async_hooks_api/async_hooks_api_1.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                         Async Hooks API 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.2" data-path="async_hooks_api/async_hooks_api_2.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                         Async Hooks API 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.3" data-path="async_hooks_api/async_hooks_api_3.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                         Async Hooks API 3
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.4" data-path="async_hooks_api/async_hooks_api_4.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_4.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                         Async Hooks API 4
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.5" data-path="async_hooks_api/async_hooks_api_5.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_5.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                         Async Hooks API 5
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.6" data-path="async_hooks_api/async_hooks_api_6.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_6.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                         Async Hooks API 6
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.7" data-path="async_hooks_api/async_hooks_api_7.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_7.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                         Async Hooks API 7
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.8" data-path="async_hooks_api/async_hooks_api_8.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_8.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                         Async Hooks API 8
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.9" data-path="async_hooks_api/async_hooks_api_9.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_9.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.9.</b>
+                        
+                         Async Hooks API 9
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.10" data-path="async_hooks_api/async_hooks_api_10.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_10.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.10.</b>
+                        
+                         Async Hooks API 10
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.11" data-path="async_hooks_api/async_hooks_api_11.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_11.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.11.</b>
+                        
+                         Async Hooks API 11
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.12" data-path="async_hooks_api/async_hooks_api_12.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_12.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.12.</b>
+                        
+                         Async Hooks API 12
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.13" data-path="async_hooks_api/async_hooks_api_13.html">
+            
+                
+                    <a href="../async_hooks_api/async_hooks_api_13.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.13.</b>
+                        
+                         Async Hooks API 13
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8" data-path="before_after_inner_workings/before_after_inner_workings_0.html">
+            
+                
+                    <a href="../before_after_inner_workings/before_after_inner_workings_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                         before/after inner workings
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="8.1" data-path="before_after_inner_workings/before_after_inner_workings_1.html">
+            
+                
+                    <a href="../before_after_inner_workings/before_after_inner_workings_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                         before/after inner workings 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.2" data-path="before_after_inner_workings/before_after_inner_workings_2.html">
+            
+                
+                    <a href="../before_after_inner_workings/before_after_inner_workings_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                         before/after inner workings 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.3" data-path="before_after_inner_workings/before_after_inner_workings_3.html">
+            
+                
+                    <a href="../before_after_inner_workings/before_after_inner_workings_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                         before/after inner workings 3
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.4" data-path="before_after_inner_workings/before_after_inner_workings_4.html">
+            
+                
+                    <a href="../before_after_inner_workings/before_after_inner_workings_4.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                         before/after inner workings 4
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.5" data-path="before_after_inner_workings/before_after_inner_workings_5.html">
+            
+                
+                    <a href="../before_after_inner_workings/before_after_inner_workings_5.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                         before/after inner workings 5
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.6" data-path="before_after_inner_workings/before_after_inner_workings_6.html">
+            
+                
+                    <a href="../before_after_inner_workings/before_after_inner_workings_6.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                         before/after inner workings 6
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.7" data-path="before_after_inner_workings/before_after_inner_workings_7.html">
+            
+                
+                    <a href="../before_after_inner_workings/before_after_inner_workings_7.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                         before/after inner workings 7
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9" data-path="async_hooks_api_demo/async_hooks_api_demo_0.html">
+            
+                
+                    <a href="../async_hooks_api_demo/async_hooks_api_demo_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                         Async Hooks API Demo
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="9.1" data-path="async_hooks_api_demo/async_hooks_api_demo_1.html">
+            
+                
+                    <a href="../async_hooks_api_demo/async_hooks_api_demo_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                         Async Hooks API Demo 1
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10" data-path="async_hooks_-__etoomanyactivities/async_hooks_-__etoomanyactivities_0.html">
+            
+                
+                    <a href="../async_hooks_-__etoomanyactivities/async_hooks_-__etoomanyactivities_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                         Async Hooks -&gt; ETOOMANYACTIVITIES
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11" data-path="async_hooks_high_level_api/async_hooks_high_level_api_0.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                         Async Hooks High Level API
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="11.1" data-path="async_hooks_high_level_api/async_hooks_high_level_api_1.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_1.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                         Async Hooks High Level API 1
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.2" data-path="async_hooks_high_level_api/async_hooks_high_level_api_2.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_2.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.2.</b>
+                        
+                         Async Hooks High Level API 2
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.3" data-path="async_hooks_high_level_api/async_hooks_high_level_api_3.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_3.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.3.</b>
+                        
+                         Async Hooks High Level API 3
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.4" data-path="async_hooks_high_level_api/async_hooks_high_level_api_4.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_4.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.4.</b>
+                        
+                         Async Hooks High Level API 4
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.5" data-path="async_hooks_high_level_api/async_hooks_high_level_api_5.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_5.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.5.</b>
+                        
+                         Async Hooks High Level API 5
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.6" data-path="async_hooks_high_level_api/async_hooks_high_level_api_6.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_6.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.6.</b>
+                        
+                         Async Hooks High Level API 6
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.7" data-path="async_hooks_high_level_api/async_hooks_high_level_api_7.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_7.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.7.</b>
+                        
+                         Async Hooks High Level API 7
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.8" data-path="async_hooks_high_level_api/async_hooks_high_level_api_8.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_8.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.8.</b>
+                        
+                         Async Hooks High Level API 8
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.9" data-path="async_hooks_high_level_api/async_hooks_high_level_api_9.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_9.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.9.</b>
+                        
+                         Async Hooks High Level API 9
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.10" data-path="async_hooks_high_level_api/async_hooks_high_level_api_10.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_10.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.10.</b>
+                        
+                         Async Hooks High Level API 10
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.11" data-path="async_hooks_high_level_api/async_hooks_high_level_api_11.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_11.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.11.</b>
+                        
+                         Async Hooks High Level API 11
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.12" data-path="async_hooks_high_level_api/async_hooks_high_level_api_12.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_12.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.12.</b>
+                        
+                         Async Hooks High Level API 12
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.13" data-path="async_hooks_high_level_api/async_hooks_high_level_api_13.html">
+            
+                
+                    <a href="../async_hooks_high_level_api/async_hooks_high_level_api_13.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.13.</b>
+                        
+                         Async Hooks High Level API 13
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12" data-path="demo_time/demo_time_0.html">
+            
+                
+                    <a href="../demo_time/demo_time_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                         Demo Time
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="13" data-path="resources/resources_0.html">
+            
+                
+                    <a href="../resources/resources_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                         Resources
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="14" data-path="nodesource__premiere_node_js_platform/nodesource__premiere_node_js_platform_0.html">
+            
+                
+                    <a href="../nodesource__premiere_node_js_platform/nodesource__premiere_node_js_platform_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                         NodeSource: premiere Node.js platform
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15" data-path="thanks!/thanks!_0.html">
+            
+                
+                    <a href="../thanks!/thanks!_0.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                         Thanks!
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Async Hooks</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_60">
+                    
+                        <h1 id="why-async-hooks">Why Async Hooks</h1>
+<p><img alt="electricity" src="https://raw.githubusercontent.com/thlorenz/talks/gh-pages/async-hooks/img/electricity.gif" width="100%"></p>
+<ul>
+<li>some decided ...</li>
+<li><strong>We can do better</strong> ...</li>
+</ul>
+<audio src="http://trekcore.com/tos/audio/themes/OriginalSeriesMainTitle.mp3" autoplay />
+
+<script>
+typeof console.clear === 'function' && console.clear()
+console.log(
+function speakerNotes() {
+/*
+StarTrek original Words:
+
+  Space: the final frontier.
+  These are the voyages of the starship enterprise.
+  It's five-year mission to explore strange new worlds ...
+  To seek out new life and new civilizations ...
+  To boldly go where no man has gone before.
+
+Adapted to Async Hooks:
+
+  Async Hooks: the missing piece of Node.js.
+  These are the voyages of the Node.js core team
+  It's four-year mission to explore strange new APIs ...
+  To seek out new ways of capturing asynchronous operations.
+  To boldly propose pull requests that no one had proposed before.
+
+*/}
+.toString().split('\n').slice(2, -1).join('\n'))
+</script>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../why_async_hooks/why_async_hooks_1.html" class="navigation navigation-prev " aria-label="Previous page: Why Async Hooks 1"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../why_async_hooks/why_async_hooks_3.html" class="navigation navigation-next " aria-label="Next page: Why Async Hooks 3"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

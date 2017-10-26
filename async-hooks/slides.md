@@ -660,7 +660,7 @@ networkActivityCollector
 ### Activity Processors - FileSystem
 
 ```js
-const processFileSystem = require('ah-fs.processor').process
+const { processFileSystem } = require('ah-fs.processor')
 const filesystemOperations = processFileSystem({
     activities: fileSystemActivityCollector.fileSystemActivities
   , includeActivities: true

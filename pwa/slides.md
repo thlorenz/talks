@@ -29,28 +29,20 @@ inside the browser or as standalone applications.
 # Can Be a Game Changer
 
 <blockquote>
+  <p style="font-size: 24px"><em>maybe used on mobile devices and the Desktop</em></p>
+</blockquote>
+
+# Can Be a Game Changer
+
+<blockquote>
   <p style="font-size: 30px"><em>maybe used on mobile devices and the Desktop</em></p>
 </blockquote>
 
 # Can Be a Game Changer
 
 <blockquote>
-  <p style="font-size: 35px"><em>maybe used on mobile devices and the Desktop</em></p>
-</blockquote>
-
-# Can Be a Game Changer
-
-<blockquote>
   <p style="font-size: 38px"><em>maybe used on mobile devices and the Desktop</em></p>
 </blockquote>
-
-# Can Be a Game Changer
-
-<blockquote>
-  <p style="font-size: 38px"><em>maybe used on mobile devices and the Desktop</em></p>
-</blockquote>
-
-- is _build once run everywhere_ finally not a lie?
 
 # Can Be a Game Changer
 
@@ -64,7 +56,15 @@ inside the browser or as standalone applications.
 🤔
 </p>
 
-- I had to find out
+> is _build once run everywhere_ finally not a lie?
+
+# Can Be a Game Changer
+
+<p style="text-align: center; font-size: 78px;">
+🤔
+</p>
+
+> I had to find out
 
 # The App I Built
 
@@ -73,6 +73,74 @@ inside the browser or as standalone applications.
   hands
 
 ![poker-chips-cards](img/poker-chips-cards.png)
+
+# The App I Built
+
+- let's look at a Poker hand
+
+```
+PokerStars Hand #164138426262: Tournament #1776003808, $5.00+$0.50 USD Hold'em No Limit - Level III (50/100) - 2017/01/06 13:41:27 ET
+Table '1776003808 21' 9-max Seat #4 is the button
+Seat 1: mondaycoffe (9876 in chips)
+Seat 2: JaguarCanna (5597 in chips)
+Seat 3: Johnnie Guti (8904 in chips)
+Seat 4: twadski88 (9200 in chips) is sitting out
+Seat 5: JayJay14687 (4779 in chips)
+Seat 6: hero (10071 in chips)
+Seat 7: happyjack (9692 in chips)
+Seat 8: datrue (11564 in chips)
+Seat 9: parcerito22 (18514 in chips)
+mondaycoffe: posts the ante 12
+JaguarCanna: posts the ante 12
+Johnnie Guti: posts the ante 12
+twadski88: posts the ante 12
+JayJay14687: posts the ante 12
+hero: posts the ante 12
+happyjack: posts the ante 12
+datrue: posts the ante 12
+parcerito22: posts the ante 12
+JayJay14687: posts small blind 50
+hero: posts big blind 100
+*** HOLE CARDS ***
+Dealt to hero [Kc Th]
+happyjack: folds
+datrue: raises 150 to 250
+parcerito22: folds
+mondaycoffe: folds
+JaguarCanna: folds
+Johnnie Guti: folds
+twadski88: folds
+JayJay14687: folds
+hero: calls 150
+*** FLOP *** [8c 6c Kh]
+hero: checks
+datrue: bets 270
+twadski88 is disconnected
+hero: calls 270
+*** TURN *** [8c 6c Kh] [8h]
+hero: checks
+datrue: checks
+*** RIVER *** [8c 6c Kh 8h] [4c]
+hero: checks
+datrue: bets 491
+hero: calls 491
+*** SHOW DOWN ***
+datrue: shows [Ks Ah] (two pair, Kings and Eights)
+hero: mucks hand
+datrue collected 2180 from pot
+*** SUMMARY ***
+Total pot 2180 | Rake 0
+Board [8c 6c Kh 8h 4c]
+Seat 1: mondaycoffe folded before Flop (didn't bet)
+Seat 2: JaguarCanna folded before Flop (didn't bet)
+Seat 3: Johnnie Guti folded before Flop (didn't bet)
+Seat 4: twadski88 (button) folded before Flop (didn't bet)
+Seat 5: JayJay14687 (small blind) folded before Flop
+Seat 6: hero (big blind) mucked [Th Kc]
+Seat 7: happyjack folded before Flop (didn't bet)
+Seat 8: datrue showed [Ks Ah] and won (2180) with two pair, Kings and Eights
+Seat 9: parcerito22 folded before Flop (didn't bet)
+```
 
 # Progressive Webapps Are
 
@@ -95,7 +163,7 @@ inside the browser or as standalone applications.
 
 ### Connectivity independent
 
-- work offline on low quality networks as well as with good connectivity
+- work offline, on low quality networks, as well as with good connectivity
 
 <img src="img/disconnected.png" alt="disconnected" height="450px">
 
@@ -134,6 +202,12 @@ inside the browser or as standalone applications.
 
 # Progressive Webapps Are
 
+### Installable
+
+<img src="img/betterpoker-install.png" alt="installation" height="500px">
+
+# Progressive Webapps Are
+
 ### Discoverable
 
 - identifiable as _applications_
@@ -153,7 +227,7 @@ inside the browser or as standalone applications.
 ### Linkable
 
 - Easily shared via a URL and do not require complex installation
-- [sample ranginator link including config](http://localhost:3333/ranginator/?share=0G00ofkWiDjgX5L8m5v98D8*******,000aB2G0Mm241401JBAa2WkWiDj0000w0001s0002U0003k08Y43184Ka36e2m*0a0K1e0K502*2a0U1e0U*392e0K1a0K*392e0e1a0e*9HIACB*z)
+- [sample ranginator link including config](https://betterpoker.tt/ranginator/?share=0G00ofkWiDjgX5L8m5v98D8*******,000aB2G0Mm241401JBAa2WkWiDj0000w0001s0002U0003k08Y43184Ka36e2m*0a0K1e0K502*2a0U1e0U*392e0K1a0K*392e0e1a0e*9HIACB*z)
 
 ![linkable](img/linkable.png)
 
@@ -169,14 +243,13 @@ inside the browser or as standalone applications.
 
 - can cache the **entire page/app** for offline use
 
-
 # Progressive Webapp Enablers
 
 ### Service Worker
 
 - supports features aside caching like _automatic updates_, _background sync_ and _push
   notifications_
-- at this point not supported in Safari, but coming soon
+- at this point ~~not~~ supported in Safari, ~~but coming soon~~
 
 # Progressive Webapp Enablers
 
@@ -186,6 +259,46 @@ inside the browser or as standalone applications.
 - make sure to your filenames contain _content hashes_ to invalidate cache properly, aka
   [cache busting](https://www.alainschlesser.com/bust-cache-content-hash/)
 - writing service worker files by hand is possible but won't scale
+
+# Progressive Webapp Enablers
+
+### Service Worker Stragegies
+
+![stale-while-revalidate](img/stale-while-revalidate.png)
+
+_Stale-While-Revalidate_
+
+# Progressive Webapp Enablers
+
+### Service Worker Stragegies
+
+![cache-first](img/cache-first.png)
+
+_Cache First_
+
+# Progressive Webapp Enablers
+
+### Service Worker Stragegies
+
+![network-first](img/network-first.png)
+
+_Network First_
+
+# Progressive Webapp Enablers
+
+### Service Worker Stragegies
+
+![network-only](img/network-only.png)
+
+_Network Only_
+
+# Progressive Webapp Enablers
+
+### Service Worker Stragegies
+
+![cache-only](img/cache-only.png)
+
+_Cache Only_
 
 # Progressive Webapp Enablers
 
@@ -326,7 +439,7 @@ inside the browser or as standalone applications.
 
 ### Click vs. Touch vs. Mouse
 
-![popup](img/popup.png)
+<img src="img/popup.png" alt="popup" width="70%">
 
 # Cross Device Interactions Are Hard
 
@@ -402,7 +515,7 @@ inside the browser or as standalone applications.
 
 # Cross Device Interactions Are Hard
 
-![bald-hair](img/bald.jpg)
+<img src="img/bald.jpg" alt="bald-hair" width="95%">
 
 # Cross Device Interactions Are Hard
 
@@ -531,6 +644,130 @@ _ontouchPress() {
   this._onrightClick(e)
 }
 ```
+
+# Service Workers Are Tricky
+
+```js
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox-sw.js')
+
+workbox.core.setCacheNameDetails({
+    prefix          : 'betterpoker.net'
+  , suffix          : 'v1'
+  , precache        : 'offline'
+  , runtime         : 'runtime'
+})
+
+workbox.precaching.suppressWarnings()
+
+// `workbox injectManifest` injects manifest here
+workbox.precaching.precacheAndRoute([])
+```
+
+# Service Workers Are Tricky
+
+### Stop Waiting
+
+- new service worker only activates after all browser tabs with the app are closed
+
+# Service Workers Are Tricky
+
+### Stop Waiting
+
+- new service worker only activates after all browser tabs with the app are closed
+- not what I wanted or expected
+
+# Service Workers Are Tricky
+
+### Stop Waiting
+
+# Service Workers Are Tricky
+
+### Stop Waiting
+
+_Please?_
+
+# Service Workers Are Tricky
+
+### Stop Waiting
+
+_Please?_
+
+<p style="text-align: center; font-size: 78px;">
+🙏
+</p>
+
+# Service Workers Are Tricky
+
+### Stop Waiting
+
+_Pretty Please?_
+
+<p style="text-align: center; font-size: 78px;">
+🙏 🙏
+</p>
+
+# Service Workers Are Tricky
+
+### Stop Waiting
+
+_Pretty Please?_
+
+<p style="text-align: center; font-size: 78px;">
+🙏 🙏 🙏
+</p>
+
+# Service Workers Are Tricky
+
+### skipWaiting
+
+> Use this method with `Clients.claim()` to ensure that updates to the underlying service
+> worker take effect immediately for both the current client and all other active clients.
+
+[mdn skipWaiting](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting)
+
+# Service Workers Are Tricky
+
+### skipWaiting
+
+> Use this method with `Clients.claim()` to ensure that updates to the underlying service
+> worker take effect immediately for both the current client and all other active clients.
+
+[mdn skipWaiting](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting)
+
+<p style="text-align: center; font-size: 78px;">
+🤨
+</p>
+
+# Service Workers Are Tricky
+
+### Clients.Claim
+
+> When a service worker is initially registered, pages won't use it until they next load. The
+> `claim()` method causes those pages to be controlled immediately.
+
+[mdn clientsClaim](https://developer.mozilla.org/en-US/docs/Web/API/Clients/claim)
+
+# Service Workers Are Tricky
+
+```js
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox-sw.js')
+
+workbox.skipWaiting()
+workbox.clientsClaim()
+
+workbox.core.setCacheNameDetails({
+    prefix          : 'betterpoker.net'
+  , suffix          : 'v1'
+  , precache        : 'offline'
+  , runtime         : 'runtime'
+})
+
+workbox.precaching.suppressWarnings()
+
+// `workbox injectManifest` injects manifest here
+workbox.precaching.precacheAndRoute([])
+```
+
 # Testing Interactions
 
 - DevTools helps but not accurate for interactions
@@ -558,9 +795,48 @@ _ontouchPress() {
 
 ![audit-report](img/audit-report.png)
 
+# Don't Give Up
+
+- everyone who creates technology will tell you it is great and easy to use
+
+# Don't Give Up
+
+- everyone who creates technology will tell you it is great and easy to use
+
+<img src="img/lies.png" alt="lies" width="90%">
+
+_¡¡¡Lies!!!_
+
+# Don't Give Up
+
+![computer-error](img/computer-problem.jpg)
+
+_It's really more like this_
+
+# Don't Give Up
+
+- don't be discouraged, it happens to ALL OF US
+- _google_ the error message
+- ask on stack overflow/github
+- isolate the problem
+- if no success move on to something else and come back later
+
+# Don't Give Up
+
+- take step back, debug closely
+- still not working? do you really need this for the first version of your app?
+
+# Getting Started
+
+- [firebase](https://firebase.google.com/) _backend as a service_
+  - _spark plan_ is free
+  - risk of lock-in
+- use if time constrained and learning about backend is not desirable
+
 # Resources
 
 - [awesmoe list of PWA](https://github.com/hemanth/awesome-pwa)
+- [firebase](https://www.youtube.com/watch?v=O17OWyx08Cg)
 
 <iframe width="450" height="250" src="https://www.youtube.com/embed/videoseries?list=PL4k64WemroGmL5XHmaFGnP0mbhf4vy2xs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 

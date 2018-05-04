@@ -28,12 +28,12 @@ improve_layout() {
 
 show() {
   nave use 6 gitbookify slides.md -o prep-gitbook   && \
-    rm -rf ./book                        &&            \
+    rm -rf ./book                                   && \
     nave use 6 gitbook build ./prep-gitbook  ./book && \
-    cd ./book                            &&            \
-    link_img                             &&            \
-    improve_fonts                        &&            \
-    improve_layout                       &&            \
+    cd ./book                                       && \
+    link_img                                        && \
+    improve_fonts                                   && \
+    improve_layout                                  && \
     echo "http://localhost:3000" && http-server -p 3000 -c-1
 }
 
@@ -43,12 +43,15 @@ build() {
   | sed -e "s|src=\"img/|src=\"$IMAGEROOT|g" \
   > pub-slides.md
 
-  nave use 6 gitbookify slides.md -o prep-gitbook   &&   \
-    rm -rf ./book                          &&            \
-    nave use 6 gitbook build ./prep-gitbook ./book    && \
-    improve_fonts                          &&            \
-    improve_layout                         &&            \
-    rm -rf pub-slides.md prep-gitbook 
+  nave use 6 gitbookify slides.md -o prep-gitbook  && \
+    rm -rf ./book                                  && \
+    nave use 6 gitbook build ./prep-gitbook ./book && \
+    cd ./book                                      && \
+    link_img                                       && \
+    improve_fonts                                  && \
+    improve_layout                                 && \
+    cd $DIR                                        && \
+    rm -rf pub-slides.md prep-gitbook
 }
 
 rm -rf ./prep-gitbook

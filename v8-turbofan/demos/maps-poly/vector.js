@@ -1,6 +1,14 @@
 'use strict'
 /* global print */
 
+function log() {
+  if (typeof print === 'function') {
+    print.apply(null, arguments)
+  } else {
+    console.log.apply(console, arguments)
+  }
+}
+
 function add(v1, v2) {
   return {
     x: v1.x + v2.x
@@ -27,7 +35,7 @@ for (let i = 0; i < ITER; i++) {
   }
 }
 
-print(`Completed warmup ${xsum}`)
+log(`Completed warmup ${xsum}`)
 
 // Rewarm
 for (let i = 0; i < ITER; i++) {
@@ -37,4 +45,4 @@ for (let i = 0; i < ITER; i++) {
   }
 }
 
-print(`Completed rewarm ${xsum}`)
+log(`Completed rewarm ${xsum}`)
